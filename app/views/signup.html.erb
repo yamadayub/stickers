@@ -1,0 +1,9 @@
+<%= form_with(model: @user, url: user_create_path) do |f| %>
+ <%= f.label 'EMAIL', :email %>
+ <%= f.text_field :email %>
+
+ <%= f.label 'PASSWORD', :password %>
+ <%= f.text_field :password %>
+
+ <%= f.submit 'Registration' %>
+<% end %>
