@@ -1,0 +1,9 @@
+<h1>This is tweets/index</h1>
+
+<div class='content'>
+  <div id="search-box">
+    <%= form_with(url: tweets_search_path, method: :get) do %>
+      <%= text_field :keyword, nil,  id: "tweet_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 200px;"%><button title="検索" type="submit">検索</button>
+    <% end %>
+  </div>
+</div>

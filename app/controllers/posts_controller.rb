@@ -6,8 +6,8 @@ class PostsController < ApplicationController
   
   #twitterからtweet情報を持ってくる
   def search
-    sns_post_url = params[:sns_post_url]
-    
+    @tweets ||= []
+    tweet_search(params[:keyword])    
   end
 
   #postのレコードを作る
@@ -17,4 +17,5 @@ class PostsController < ApplicationController
   #post情報を表示する
   def show
   end
+
 end

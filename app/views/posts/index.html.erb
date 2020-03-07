@@ -1,8 +1,8 @@
 <h1>This is posts/index</h1>
 
-<%= form_with(model: @post, url: posts_search_path) do |f| %>
- <%= f.label 'TWEET URL', :sns_post_url %>
- <%= f.text_field :sns_post_url %>
+<%= form_with(url: posts_search_path) do |f| %>
+ <%= f.label 'KEYWORD', :keyword %>
+ <%= f.text_field :keyword %>
 
  <%= f.submit 'Search' %>
 <% end %>

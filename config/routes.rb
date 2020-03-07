@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to:'posts#index'
-  post '/posts/search', to: 'posts#search'
+  root to:'tweets#index'
+  get '/tweets/search', to: 'tweets#search'
   get '/posts/show/:id', to: 'posts#show'
   get '/signup', to: 'users#signup'
   post '/users/create', to: 'users#create'

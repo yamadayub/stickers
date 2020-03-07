@@ -15,5 +15,7 @@ module Boo
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    config.web_console.whitelisted_ips = '124.209.183.109'
   end
 end

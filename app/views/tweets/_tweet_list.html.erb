@@ -1,0 +1,18 @@
+<% logger.debug(@tweets) %>
+<% logger.debug(@tweets.present?) %>
+<% logger.debug(@tweets.class) %>
+<h2><%= @tweets.class %></h2>
+<h2>tweet結果有無の外</h2>
+  
+<% if @tweets.present? %>
+<h2>tweetsがnil以外の場合だけ表示される</h2>
+<h2><%= @tweets.class %></h2>
+  
+  <ul>
+    <% @tweets.each_with_index do |tw, i| %>
+    <div class="list">
+      <li>Tweet<%= i %>: <%= tw %> </li>
+    </div>
+    <% end %>
+  </ul>
+<% end %>
