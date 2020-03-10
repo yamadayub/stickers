@@ -3,9 +3,6 @@ class Tweet
   include ActiveModel::Model
 
   # プロパティの設定
-  attr_accessor :contents
+  attr_accessor :user_screen_name, :tweet_id,  :text, :profile_image_url, :favorite_count, :tweet_url
 
-  def initialize(contents)
-    @contents = contents
-  end
 end

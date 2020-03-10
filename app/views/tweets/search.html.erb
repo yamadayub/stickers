@@ -1,5 +1,10 @@
-<h1>Tweets#search</h1>
-<p>Find me in app/views/tweets/search.html.erb</p>
+<div class='content'>
+  <div id="search-box">
+    <%= form_with(url: tweets_search_path, method: :get, local: true) do %>
+      <%= text_field :keyword, nil,  id: "tweet_search", name: "keyword", placeholder: "Keyword for search", style: "width: 200px;"%><button title="検索" type="submit">Search</button>
+    <% end %>
+  </div>
+</div>
 
   <div id='tweet_list'>
      <%= render partial: 'tweet_list', locals: {tweets: @tweets}  %>
