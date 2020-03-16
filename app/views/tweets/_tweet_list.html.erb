@@ -1,30 +1,52 @@
 <% if tweets.present? %>
 <h3>keyword：<%= @word%></h3>
   <ul>
-    <!--
     <% tweets.each_with_index do |tw, i| %>
-    <div class="list">
-      <li>Tweet<%= i %>: <%= tw %> </li>
-    </div>
-    <% end %>
-    -->
-
-    <% tweets.each_with_index do |tw, i| %>
-    <div class="list">
       <span><img src="<%= tw.profile_image_url %>"></span>
-      <li>User Name: <%= tw.user_screen_name %></li>
-      <li>Tweet: <%= tw.text %></li>
-      <li># of Likes: <%= "0" unless tw.favorite_count  %></li>
-      <li>URI: <%= tw.tweet_url %></li>
+      <li><%= tw.user_screen_name %></li>
+      <li><%= tw.text %></li>
+      <li><%= tw.favorite_count %></li>
+          <%= link_to "POSTページに移動", 
+          posts_path({
+          profile_image_url: tw.profile_image_url, 
+          user_screen_name: tw.user_screen_name,
+          text: tw.text,
+          favorite_count: tw.favorite_count,
+          tweet_url: tw.tweet_url,
+          tweet_id: tw.tweet_id
+        }),
+        method: :post       
+        %>
       <hr>
-    </div>
     <% end %>
-    
   </ul>
 
-    <!--
-  <pre>
-    <%= JSON.pretty_generate(@tweet_results.attrs) %>
-  </pre>
-     --> 
+
+    <div id="tweet-container">
+        <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+        <script>
+        // コンテナを取得
+        var container = document.getElementById( "tweet-container" ) ;
+
+        <% tweets.each_with_index do |tw, i| %>        
+            // ツイートを埋め込み表示するメソッドを実行
+            twttr.widgets.createTweet (
+            	"<%= tw.tweet_id %>" ,	// ツイートID
+            	container ,	// コンテナの要素
+            	{	// パラメータ
+            //		cards: "hidden" ,
+            //		conversation: "none" ,
+            //  	theme: "dark" ,
+            //		link-color: "#D36015" ,
+               		width: 550 ,
+               		align: "center" ,
+            //		lang: "ja" ,
+            //		dnt: true ,
+            	}
+            ) ;
+        <% end %>
+        </script>
+    </div>
+
 <% end %>
+

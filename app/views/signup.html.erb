@@ -1,9 +1,18 @@
-<%= form_with(model: @user, url: user_create_path) do |f| %>
- <%= f.label 'EMAIL', :email %>
- <%= f.text_field :email %>
-
- <%= f.label 'PASSWORD', :password %>
- <%= f.text_field :password %>
-
- <%= f.submit 'Registration' %>
+<%= form_with(model: @user, url: users_create_path) do |f| %>
+  <div class="form-group">
+  <%= f.label 'EMAIL', :email %>
+  <%= f.text_field :email %>
+  </div>
+  
+  <div class="form-group">
+  <%= f.label 'PASSWORD', :password %>
+  <%= f.text_field :password %>
+  </div>
+  
+  <div class="form-group">
+   <%= f.label 'Confirmation', :password_confirmation %>
+   <%= f.password_field :password_confirmation %>
+  </div>
+   
+  <%= f.submit 'Registration' %>
 <% end %>

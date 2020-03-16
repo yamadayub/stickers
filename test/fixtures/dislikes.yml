@@ -2,8 +2,10 @@
 
 one:
   post: one
-  boo: false
+  user: one
+  delete: false
 
 two:
   post: two
-  boo: false
+  user: two
+  delete: false

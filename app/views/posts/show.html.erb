@@ -1,2 +1,30 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div id="tweet-container">
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+    <script>
+    // コンテナを取得
+    var container = document.getElementById( "tweet-container" ) ;
+    
+    // ツイートを埋め込み表示するメソッドを実行
+    twttr.widgets.createTweet (
+    	"<%= @post.tweet_id %>" ,	// ツイートID
+    	container ,	// コンテナの要素
+    	{	// パラメータ
+    //		cards: "hidden" ,
+    //		conversation: "none" ,
+    //  		theme: "dark" ,
+    //		link-color: "#D36015" ,
+       		width: 550 ,
+       		align: "left" ,
+    //		lang: "ja" ,
+    //		dnt: true ,
+    	}
+    ) ;
+    </script>
+</div>
+
+<%= form_with(model: @dislike, local: true) do |f| %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit 'Dislike', class: 'btn btn-danger' %>
+<% end %>
+

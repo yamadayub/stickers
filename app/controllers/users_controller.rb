@@ -9,15 +9,15 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       flash[:success] = 'ユーザー登録に成功しました。'
-      redirect_to index
+      redirect_to root_path
     else
       flash[:danger] = 'ユーザー登録に失敗しました。'
-      render signup
+      render :signup
     end
   end
   
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
   
 end
