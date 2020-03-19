@@ -1,52 +1,23 @@
 <% if tweets.present? %>
-<h3>keyword：<%= @word%></h3>
-  <ul>
-    <% tweets.each_with_index do |tw, i| %>
-      <span><img src="<%= tw.profile_image_url %>"></span>
-      <li><%= tw.user_screen_name %></li>
-      <li><%= tw.text %></li>
-      <li><%= tw.favorite_count %></li>
-          <%= link_to "POSTページに移動", 
-          posts_path({
-          profile_image_url: tw.profile_image_url, 
-          user_screen_name: tw.user_screen_name,
-          text: tw.text,
-          favorite_count: tw.favorite_count,
-          tweet_url: tw.tweet_url,
-          tweet_id: tw.tweet_id
-        }),
-        method: :post       
-        %>
-      <hr>
-    <% end %>
-  </ul>
-
-
-    <div id="tweet-container">
-        <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
-        <script>
-        // コンテナを取得
-        var container = document.getElementById( "tweet-container" ) ;
-
-        <% tweets.each_with_index do |tw, i| %>        
-            // ツイートを埋め込み表示するメソッドを実行
-            twttr.widgets.createTweet (
-            	"<%= tw.tweet_id %>" ,	// ツイートID
-            	container ,	// コンテナの要素
-            	{	// パラメータ
-            //		cards: "hidden" ,
-            //		conversation: "none" ,
-            //  	theme: "dark" ,
-            //		link-color: "#D36015" ,
-               		width: 550 ,
-               		align: "center" ,
-            //		lang: "ja" ,
-            //		dnt: true ,
-            	}
-            ) ;
-        <% end %>
-        </script>
-    </div>
-
+  <% tweets.each_with_index do |tw, i| %>
+    <a href="<%= posts_path %>" class="no-underline">
+      <div id="tweet-container">
+        <input type="hidden" name="profile_image_url" value="<%= tw.profile_image_url%>">
+        <input type="hidden" name="user_screen_name" value="<%= tw.user_screen_name%>">
+        <input type="hidden" name="text" value="<%= tw.text%>">
+        <input type="hidden" name="favorite_count" value="<%= tw.favorite_count%>">
+        <input type="hidden" name="tweet_url" value="<%= tw.tweet_url%>">
+        <input type="hidden" name="tweet_id" value="<%= tw.tweet_id%>">
+        <div id="icon">
+          <img src="<%= tw.profile_image_url %>" class="rounded-circle tweet_icon" align="center">
+        </div>
+        <div id="tweet">
+          @<%= tw.user_screen_name %><br>
+          <%= tw.text %>
+        </div>
+      </div>
+    </a>
+    <hr>
+  <% end %>
 <% end %>
 

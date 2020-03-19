@@ -1,0 +1,64 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    background: #DDDDDD;
+}
+
+#index_container{
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-box-search{
+  height: 5%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  background: #EEEEEE;
+}
+
+#keyword-at-search{
+  height: 3%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+}
+
+#tweet-container{
+  display: flex;
+}
+
+#icon{
+  width: 100;
+	flex-wrap:nowrap;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+}
+
+#tweet{
+	flex-wrap:nowrap;
+  background: #FFFFFF;
+}
+
+a.no-underline {
+  text-decoration: none;
+}
+
+.tweet_icon{
+  vertical-align: middle;
+}

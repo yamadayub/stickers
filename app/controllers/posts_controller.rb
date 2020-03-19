@@ -37,5 +37,4 @@ class PostsController < ApplicationController
     #Tweetモデルに実装する方がすっきりする
     
   end
-
 end
