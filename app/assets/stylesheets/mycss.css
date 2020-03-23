@@ -22,7 +22,7 @@ body {
 
 #search-box-search{
   height: 5%;
-  margin: 0;
+  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;  
@@ -42,16 +42,15 @@ body {
   display: flex;
 }
 
-#icon{
-  width: 100;
+.icon{
+  display: inline-block;
+  width: 150px;
 	flex-wrap:nowrap;
-  justify-content: center;
-  align-items: center;
   background: #FFFFFF;
 }
 
-#tweet{
-	flex-wrap:nowrap;
+.tweet{
+  display: inline-block;
   background: #FFFFFF;
 }
 

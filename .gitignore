@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore Env settings
+/.env
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

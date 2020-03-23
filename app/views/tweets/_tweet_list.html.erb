@@ -1,3 +1,4 @@
+<hr>
 <% if tweets.present? %>
   <% tweets.each_with_index do |tw, i| %>
     <a href="<%= posts_path %>" class="no-underline">
@@ -8,10 +9,10 @@
         <input type="hidden" name="favorite_count" value="<%= tw.favorite_count%>">
         <input type="hidden" name="tweet_url" value="<%= tw.tweet_url%>">
         <input type="hidden" name="tweet_id" value="<%= tw.tweet_id%>">
-        <div id="icon">
+        <div class="icon">
           <img src="<%= tw.profile_image_url %>" class="rounded-circle tweet_icon" align="center">
         </div>
-        <div id="tweet">
+        <div class="tweet">
           @<%= tw.user_screen_name %><br>
           <%= tw.text %>
         </div>
