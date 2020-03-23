@@ -1,23 +1,27 @@
 <hr>
 <% if tweets.present? %>
   <% tweets.each_with_index do |tw, i| %>
-    <a href="<%= posts_path %>" class="no-underline">
-      <div id="tweet-container">
-        <input type="hidden" name="profile_image_url" value="<%= tw.profile_image_url%>">
-        <input type="hidden" name="user_screen_name" value="<%= tw.user_screen_name%>">
-        <input type="hidden" name="text" value="<%= tw.text%>">
-        <input type="hidden" name="favorite_count" value="<%= tw.favorite_count%>">
-        <input type="hidden" name="tweet_url" value="<%= tw.tweet_url%>">
-        <input type="hidden" name="tweet_id" value="<%= tw.tweet_id%>">
-        <div class="icon">
-          <img src="<%= tw.profile_image_url %>" class="rounded-circle tweet_icon" align="center">
+    <form method="post" name="form1" action="link.php">
+      <input type="hidden" name="user_name" value="名前">
+      <a href="javascript:form1.submit()">リンク名</a>
+      <a href="<%= posts_path %>" class="no-underline">
+        <div id="tweet-container">
+          <input type="hidden" name="profile_image_url" value="<%= tw.profile_image_url%>">
+          <input type="hidden" name="user_screen_name" value="<%= tw.user_screen_name%>">
+          <input type="hidden" name="text" value="<%= tw.text%>">
+          <input type="hidden" name="favorite_count" value="<%= tw.favorite_count%>">
+          <input type="hidden" name="tweet_url" value="<%= tw.tweet_url%>">
+          <input type="hidden" name="tweet_id" value="<%= tw.tweet_id%>">
+          <div class="icon">
+            <img src="<%= tw.profile_image_url %>" class="rounded-circle tweet_icon" align="center">
+          </div>
+          <div class="tweet">
+            @<%= tw.user_screen_name %><br>
+            <%= tw.text %>
+          </div>
         </div>
-        <div class="tweet">
-          @<%= tw.user_screen_name %><br>
-          <%= tw.text %>
-        </div>
-      </div>
-    </a>
+      </a>
+    </form>
     <hr>
   <% end %>
 <% end %>
