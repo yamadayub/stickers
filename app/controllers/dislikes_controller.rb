@@ -21,5 +21,4 @@ class DislikesController < ApplicationController
   def dislike_params
     params.require(:dislike).permit(:post_id, :user_id)
   end
-  
 end

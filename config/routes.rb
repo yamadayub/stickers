@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   root to:'tweets#index'
   get '/tweets/search', to: 'tweets#search'
   
-  resources :posts, only: [:create, :show]
+  resources :posts, only: [:create, :show] do
+    member do
+      get :thumbsdown
+    end
+  end
   #get '/posts/show/:id', to: 'posts#show'
   #post '/posts/create', to: 'posts#create'
   

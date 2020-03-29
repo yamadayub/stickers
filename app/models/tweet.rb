@@ -14,6 +14,5 @@ class Tweet
     
     #一件のtweetを検索
     @tweet_results = client.search(params[:keyword], count: 10, result_type: "recent", exclude: "retweets", since_id: since_id)
-    
   end
 end

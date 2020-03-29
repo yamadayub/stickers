@@ -28,14 +28,18 @@ class TweetsController < ApplicationController
         @tweet.tweet_url = "https://twitter.com/#{tweet[:user][:screen_name]}/status/#{tweet[:id]}"
         @tweets << @tweet
       end
-      
-      #binding.pry
-      
     end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @tweets } # jsonを指定した場合、jsonフォーマットで返す
     end
+    
+    # @posts = Array.new()
+    # 10.times do |i|
+    #   @posts[i] = Post.new()
+    # end
+    
+    # binding.pry
     render 'tweets/search'
   end
   

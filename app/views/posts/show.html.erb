@@ -21,10 +21,17 @@
     ) ;
     </script>
 </div>
-
+<hr>
 <%= form_with(model: @dislike, local: true) do |f| %>
   <%= f.hidden_field :post_id, value: @post.id %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit 'Dislike', class: 'btn btn-danger' %>
+  <%= button_tag :type => "submit", :class =>'btn btn-lg thumbs_down_button' do %>
+    <i class="far fa-thumbs-down"></i>
+    <span>Holy</span>
+  <% end %>  
 <% end %>
-
+<hr>
+<%= link_to  thumbsdown_post_path, post_id: @post.id, class: 'btn btn-lg thumbs_down_button' do %>
+  <i class="far fa-thumbs-down"></i>
+  <span>Shit!</span>
+<% end %>
