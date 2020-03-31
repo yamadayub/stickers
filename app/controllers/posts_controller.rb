@@ -35,8 +35,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @dislike = Dislike.new
+    # @dislike_coount = Dislike.count_dislikes(@post)
     #binding.pry
-    
     #このTweetを引っ張ってきてfavorite_countを取る
     #Tweetモデルに実装する方がすっきりする
   end

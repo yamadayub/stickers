@@ -18,6 +18,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #CCCCCC;
 }
 
 #search-box-search{
@@ -64,11 +65,15 @@ body {
 
 .tweet_button{
   display: inline-block;
+  width: 550px;
+  margin-right: 10px;
   vertical-align: middle;
   background-color: #FFFFFF;
 }
 
 .thumbs_down_button{
-  display: block;
+  display: inline-block;
+  width: 550px; 
+  margin-right: 10px;
   background-color: #FFFFFF;
 }
