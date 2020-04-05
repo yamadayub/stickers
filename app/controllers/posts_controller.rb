@@ -44,11 +44,11 @@ class PostsController < ApplicationController
   def thumbsdown
     # binding.pry
     if @post.addthumbsdown
-      flash[:success] = "Updateに成功しました"
+      #flash[:success] = "Updateに成功しました"
       #binding.pry
       redirect_back(fallback_location: root_path)
     else
-      flash[:danger] = "Updateに失敗しました"
+      #flash[:danger] = "Updateに失敗しました"
       redirect_back(fallback_location: root_path)
     end
   end

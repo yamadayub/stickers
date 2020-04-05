@@ -24,10 +24,16 @@
 <hr>
 <%= form_with(model: @dislike, local: true) do |f| %>
   <%= f.hidden_field :post_id, value: @post.id %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= button_tag :type => "submit", :class =>'btn btn-lg thumbs_down_button' do %>
-    <i class="far fa-frown"></i>
-    <span><%= Dislike.where(post_id: @post.id).size %></span>
+    <% if logged_in? %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= button_tag :type => "submit", :class =>'btn btn-lg thumbs_down_button' do %>
+      <i class="far fa-frown"></i>
+      <span><%= Dislike.where(post_id: @post.id).size %></span>
+      <% end %>  
+  <% else %>
+      <%= button_tag :type => "submit", :class =>'btn btn-lg thumbs_down_button', :disabled =>" disabled" do %>
+      <i class="far fa-frown"></i><span>&nbsp;Sign In to Click</span>
+      <% end %>  
   <% end %>  
 <% end %>
 <hr>

@@ -1,4 +1,6 @@
 class DislikesController < ApplicationController
+  before_action :require_user_logged_in
+  
   def create
     dislike = Dislike.new(dislike_params)
     

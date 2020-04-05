@@ -8,8 +8,11 @@ body {
 }
 
 .container {
-    height: 100%;
-    background-color: #DDDDDD;
+  height: 100%;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #DDDDDD;
 }
 
 #index_container{
@@ -65,15 +68,30 @@ body {
 
 .tweet_button{
   display: inline-block;
-  width: 550px;
-  margin-right: 10px;
+  width: 450px;
   vertical-align: middle;
   background-color: #FFFFFF;
 }
 
 .thumbs_down_button{
   display: inline-block;
-  width: 550px; 
-  margin-right: 10px;
+  width: 450px; 
   background-color: #FFFFFF;
+}
+
+.header{
+  border-bottom: 1px solid rgba(0,0,0,.30);
+  background: #FFFFFF;
+}
+
+.header>.header_container{
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.header_container{
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }

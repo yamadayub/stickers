@@ -1,6 +1,6 @@
 <header>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a href="/" class="navbar-brand">Wrong</a> <div class="text-white">You can express your negative feeling</div>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark header_container">
+    <a href="/" class="navbar-brand">Wrong</a><div class="text-white">You can express your negative feeling</div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,8 +8,15 @@
     <!-- メニュー項目 -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
+        <% if logged_in? %>
+          <li class="nav-item nav-link">User:<%= current_user.email %></li>
+        <% end %>
         <li class="nav-item"><%= link_to 'Sign Up', signup_url, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'Sign In', login_url, class: 'nav-link' %></li>
+        <% if logged_in? %>
+          <li class="nav-item"><%= link_to 'Sign out', logout_url, method: :delete, class: 'nav-link' %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to 'Sign In', login_url, class: 'nav-link' %></li>
+        <% end %>
       </ul>
     </div>
   </nav>
