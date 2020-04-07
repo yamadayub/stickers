@@ -7,12 +7,80 @@ body {
     margin: 0;
 }
 
+.header{
+  border-bottom: 1px solid rgba(0,0,0,.30);
+  background: #FFFFFF;
+}
+
+.header_container{
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+.header>.header_container{
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
 .container {
   height: 100%;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
   background-color: #DDDDDD;
+}
+
+.footer{
+  border-top: 1px solid rgba(0,0,0,.30);
+  height: 50px;
+  background: #FFFFFF;
+}
+
+.search-box-search{
+  height: 5%;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  background-color: #EEEEEE;
+}
+
+.tweet_list{
+  height: 95%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;  
+  background-color: #EEEEEE;
+}
+
+.tweet{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tweet_text{
+  flex-grow: 1;
+  vertical-align: middle;
+  background-color: #FFFFFF;
+}
+
+.tweet_icon{
+  background-color: #1111FF;
+}
+
+.tweet_button{
+  vertical-align: middle;
+  background-color: #FFFF11;
+}
+
+.thumbs_down_button{
+  display: inline-block;
+  width: 450px; 
+  background-color: #FFFFFF;
 }
 
 #index_container{
@@ -24,14 +92,6 @@ body {
   background-color: #CCCCCC;
 }
 
-#search-box-search{
-  height: 5%;
-  margin: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-  background-color: #EEEEEE;
-}
 
 #keyword-at-search{
   height: 3%;
@@ -46,52 +106,3 @@ body {
   display: flex;
 }
 
-.icon{
-  display: inline-block;
-  width: 150px;
-	flex-wrap:nowrap;
-  background-color: #FFFFFF;
-}
-
-.tweet_text{
-  display: inline-block;
-  vertical-align: middle;
-  background-color: #FFFFFF;
-}
-
-.tweet_icon{
-  display: inline-block;
-  width: 50px;
-  vertical-align: middle;
-  background-color: #1111FF;
-}
-
-.tweet_button{
-  display: inline-block;
-  width: 450px;
-  vertical-align: middle;
-  background-color: #FFFFFF;
-}
-
-.thumbs_down_button{
-  display: inline-block;
-  width: 450px; 
-  background-color: #FFFFFF;
-}
-
-.header{
-  border-bottom: 1px solid rgba(0,0,0,.30);
-  background: #FFFFFF;
-}
-
-.header>.header_container{
-  display: flex;
-  justify-content: space-between;
-  height: 50px;
-}
-
-.header_container{
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
