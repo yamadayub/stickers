@@ -7,8 +7,32 @@ body {
     margin: 0;
 }
 
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 50px;  
+  background: #FFFFFF;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 50px;
+  background: #FFFFFF;
+}
+
 .header{
-  border-bottom: 1px solid rgba(0,0,0,.30);
+  /*position: fixed;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*z-index: 2;*/
+  /*width: 100%;*/
   background: #FFFFFF;
 }
 
@@ -22,27 +46,42 @@ body {
 .header>.header_container{
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  /*height: 50px;*/
 }
 
 .container {
-  height: 100%;
-  width: 100%;
+  /*width: 100%;*/
+  /*height: 100%;*/
   max-width: 800px;
   margin: 0 auto;
   background-color: #DDDDDD;
 }
 
 .footer{
-  border-top: 1px solid rgba(0,0,0,.30);
+  /*position: fixed;*/
+  /*bottom: 0;*/
+  /*left: 0;*/
+  /*z-index: 2;*/
+  /*width: 100%;*/
+}
+
+.footer_container{
+  /*width: 100%;*/
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #6699cc;
+}
+
+.footer>.footer_container{
+  display: flex;
+  justify-content: space-between;
   height: 50px;
-  background: #FFFFFF;
 }
 
 .search-box-search{
+  margin-top: 70px;
   height: 5%;
   width: 100%;
-  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;  
@@ -50,10 +89,7 @@ body {
 }
 
 .tweet_list{
-  height: 95%;
-  width: 100%;
-  justify-content: center;
-  align-items: center;  
+  /*width: 100%;*/
   background-color: #EEEEEE;
 }
 
@@ -69,16 +105,17 @@ body {
 }
 
 .tweet_icon{
+  margin: 10px;
   background-color: #1111FF;
-}
+}  
 
 .tweet_button{
+  margin-left: 10px;
   vertical-align: middle;
   background-color: #FFFF11;
 }
 
 .thumbs_down_button{
-  display: inline-block;
   width: 450px; 
   background-color: #FFFFFF;
 }

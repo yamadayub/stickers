@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Boo</title>
+    <title>More</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
@@ -20,14 +20,15 @@
   </head>
 
   <body>
-    <div class="header">
+    <header class="header">
       <%= render 'layouts/navbar' %>
-    </div>
+    </header>
     <div class="container">
       <%= render 'layouts/flash_messages' %>
       <%= yield %>
     </div>
-    <div class="footer">
-    </div>
+    <footer class="footer">
+        <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

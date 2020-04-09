@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'dislikes/destroy'
   root to:'tweets#index'
   get '/tweets/search', to: 'tweets#search'
+  get '/tweets/timeline', to: 'tweets#timeline'
   
   resources :posts, only: [:create, :show] do
     member do

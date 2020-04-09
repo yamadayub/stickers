@@ -1,7 +1,11 @@
 <div id="index_container">
   <div id="search-box-top">
     <%= form_with(url: tweets_search_path, method: :get, local: true) do %>
-      <%= text_field :keyword, nil,  id: "tweet_search", name: "keyword", placeholder: "Keyword for search", style: "width: 200px;"%><button title="検索" type="submit">Search</button>
+      <%= text_field :keyword, nil,  id: "tweet_search", name: "keyword", placeholder: "Keyword for search", style: "width: 200px;"%><button title="検索" type="submit">Tweet Search</button>
+    <% end %>
+    <hr>
+    <%= form_with(url: tweets_timeline_path, method: :get, local: true) do %>
+      <%= text_field :keyword, nil,  id: "tweet_search_timeline", name: "keyword", placeholder: "Account ID for search", style: "width: 200px;"%><button title="検索" type="submit">User Search</button>
     <% end %>
   </div>
 </div>
