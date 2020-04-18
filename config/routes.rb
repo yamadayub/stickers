@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:create, :show] do
     member do
       get :thumbsdown
+      get :thumbsup
     end
   end
   #get '/posts/show/:id', to: 'posts#show'

@@ -1,3 +1,5 @@
+<% provide :title, "ホーム" %>
+
 <div id="tweet-container">
     <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
     <script>
@@ -11,33 +13,86 @@
     	{	// パラメータ
     //		cards: "hidden" ,
     //		conversation: "none" ,
-    //  		theme: "dark" ,
+    //  	theme: "dark" ,
     //		link-color: "#D36015" ,
-       		width: 550 ,
-       		align: "left" ,
+       		width: 500,
+       		align: "center" ,
     //		lang: "ja" ,
     //		dnt: true ,
     	}
     ) ;
     </script>
 </div>
+<div class="show_button">
+  <% if @post.thumbsup - @post.thumbsdown > 0 %>
+    <div class="btn btn-lg btn-success net_thumbs_button">
+        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
+        <span><%= @post.thumbsup - @post.thumbsdown %></span>
+    </div>
+  <% elsif @post.thumbsup - @post.thumbsdown == 0 %>
+    <div class="btn btn-lg btn-warning net_thumbs_button">
+        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
+        <span><%= @post.thumbsup - @post.thumbsdown %></span>
+    </div>
+  <% else %>
+    <div class="btn btn-lg btn-danger net_thumbs_button">
+        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
+        <span><%= @post.thumbsup - @post.thumbsdown %></span>
+    </div>
+  <% end %>
+</div> 
+<div class="show_button">
+  <%= link_to  thumbsup_post_path, post_id: @post.id, class: 'btn btn-lg thumbs_down_button' do %>
+    <i class="far fa-thumbs-up"></i>
+    <span><%= @post.thumbsup %></span>
+  <% end %>
+</div>  
+<div class="show_button">
+  <%= link_to  thumbsdown_post_path, post_id: @post.id, class: 'btn btn-lg thumbs_down_button' do %>
+    <i class="far fa-thumbs-down"></i>
+    <span><%= @post.thumbsdown %></span>
+  <% end %>
+</div>
+
 <hr>
+
+<div class="show_button">
+  <div class="btn btn-lg net_like_button">
+      <i class="far fa-heart"></i> - <i class="far fa-frown"></i> = 
+      <span>0</span>
+  </div>
+</div> 
+
 <%= form_with(model: @dislike, local: true) do |f| %>
+  <div class="show_button">
   <%= f.hidden_field :post_id, value: @post.id %>
-    <% if logged_in? %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= button_tag :type => "submit", :class =>'btn btn-lg thumbs_down_button' do %>
-      <i class="far fa-frown"></i>
-      <span><%= Dislike.where(post_id: @post.id).size %></span>
-      <% end %>  
+        <% if logged_in? %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= button_tag :type => "submit", :class =>'btn btn-lg thumbs_down_button' do %>
+        <i class="far fa-frown"></i>
+        <span><%= Dislike.where(post_id: @post.id).size %></span>
+        <% end %>  
   <% else %>
       <%= button_tag :type => "submit", :class =>'btn btn-lg thumbs_down_button', :disabled =>" disabled" do %>
-      <i class="far fa-frown"></i><span>&nbsp;Sign In to Click</span>
+      <span>&nbsp;Sign In to Click</span><i class="far fa-frown"></i>
       <% end %>  
   <% end %>  
+  </div>  
 <% end %>
+
 <hr>
-<%= link_to  thumbsdown_post_path, post_id: @post.id, class: 'btn btn-lg thumbs_down_button' do %>
-  <i class="far fa-thumbs-down"></i>
-  <span><%= @post.thumbsdown %></span>
-<% end %>
+<div class="show_button">
+  <span id="share_btn" class="btn btn-lg net_like_button" data-clipboard-text="<%= yield :title %> | <%= request.url %> | #MORE">この記事のURLとタイトルをコピー</span>
+</div>
+
+<script type="text/javascript">
+  var clipboard = new Clipboard('#share_btn');
+      clipboard.on('success', function(e) {
+      //コピー成功時
+      $("#share_btn").addClass('is-copied').text('コピーされました');
+  });
+  clipboard.on('error', function(e) {
+      //エラー時
+      $("#share_btn").addClass('is-copied').text('お使いの端末はこの機能に対応していません');
+  });
+</script>

@@ -1,6 +1,6 @@
 <div class="search-box-search">
   <%= form_with(url: tweets_timeline_path, method: :get, local: true) do %>
-    <%= text_field :keyword, nil,  id: "tweet_search_timeline", name: "keyword", placeholder: "Account ID for search", style: "width: 200px;"%><button title="検索" type="submit">User Search</button>
+    <%= text_field :search_username, nil,  id: "tweet_search_timeline", name: "search_username", placeholder: @username, style: "width: 200px;"%><button title="検索" type="submit">User Search</button>
   <% end %>
 </div>
 

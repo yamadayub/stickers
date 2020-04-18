@@ -6,4 +6,10 @@ class Post < ApplicationRecord
     # self.thumbsdown += 1
     self.update(thumbsdown: self.thumbsdown += 1)
   end
+  
+  def addthumbsup
+    # binding.pry
+    # self.thumbsdown += 1
+    self.update(thumbsup: self.thumbsup += 1)
+  end
 end

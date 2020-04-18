@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :thumbsdown]
+  before_action :find_post, only: [:show, :thumbsdown, :thumbsup]
   
   #tweetの検索画面を表示する
   def index
@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     @post.tweet_id = params[:post][:tweet_id]
     @post.sns_post_url = params[:post][:sns_post_url]
     @post.thumbsdown = 0
+    @post.thumbsup = 0
     #binding.pry
     
     if @post.save
@@ -39,11 +40,26 @@ class PostsController < ApplicationController
     #binding.pry
     #このTweetを引っ張ってきてfavorite_countを取る
     #Tweetモデルに実装する方がすっきりする
+    
+    #該当Tweetの情報を改めて持ってくる
+    
   end
   
   def thumbsdown
     # binding.pry
     if @post.addthumbsdown
+      #flash[:success] = "Updateに成功しました"
+      #binding.pry
+      redirect_back(fallback_location: root_path)
+    else
+      #flash[:danger] = "Updateに失敗しました"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+  
+  def thumbsup
+    # binding.pry
+    if @post.addthumbsup
       #flash[:success] = "Updateに成功しました"
       #binding.pry
       redirect_back(fallback_location: root_path)
