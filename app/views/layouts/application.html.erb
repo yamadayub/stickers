@@ -4,34 +4,33 @@
     <title><%= yield :title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
     <script src="https://kit.fontawesome.com/fc9683d225.js" crossorigin="anonymous"></script>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.13/clipboard.min.js"></script>
   </head>
 
   <body>
-    <header class="header">
+    <div class="container-sm">
+      <header >
       <%= render 'layouts/navbar' %>
-    </header>
-    <div id="body-bk">
-      <!--<%= render 'layouts/flash_messages' %>-->
-      <%= yield %>
+      </header>
+
+      <div>
+        <!--<%= render 'layouts/flash_messages' %>-->
+        <%= yield %>
+      </div>
+
+      <footer  class="fixed-bottom">
+          <%= render 'layouts/footer' %>
+      </footer>
     </div>
-    <footer class="footer">
-        <%= render 'layouts/footer' %>
-    </footer>
   </body>
 </html>

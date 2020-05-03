@@ -1,24 +1,19 @@
-<% provide :title, "ホーム" %>
+<% provide :title, @post.id %>
 
 <div id="tweet-container">
     <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
     <script>
-    // コンテナを取得
     var container = document.getElementById( "tweet-container" ) ;
     
-    // ツイートを埋め込み表示するメソッドを実行
     twttr.widgets.createTweet (
-    	"<%= @post.tweet_id %>" ,	// ツイートID
-    	container ,	// コンテナの要素
-    	{	// パラメータ
-    //		cards: "hidden" ,
-    //		conversation: "none" ,
-    //  	theme: "dark" ,
-    //		link-color: "#D36015" ,
-       		width: 500,
-       		align: "center" ,
-    //		lang: "ja" ,
-    //		dnt: true ,
+    	"<%= @post.tweet_id %>",	
+    	container,
+    	{
+    		cards: "hidden",
+    		conversation: "none",
+     		width: 500,
+     		align: "center",
+    		dnt: true,
     	}
     ) ;
     </script>
@@ -82,17 +77,17 @@
 
 <hr>
 <div class="show_button">
-  <span id="share_btn" class="btn btn-lg net_like_button" data-clipboard-text="<%= yield :title %> | <%= request.url %> | #MORE">この記事のURLとタイトルをコピー</span>
+  <span id="share_btn" class="btn btn-lg net_like_button" data-clipboard-text="How do you feel about this tweet? | @XXXXX | xxxxxxxxxxxxxxxxxxxx | <%= request.url %> | #MOOORE">Copy URL and Title</span>
 </div>
 
 <script type="text/javascript">
   var clipboard = new Clipboard('#share_btn');
       clipboard.on('success', function(e) {
       //コピー成功時
-      $("#share_btn").addClass('is-copied').text('コピーされました');
+      $("#share_btn").addClass('is-copied').text('Copied');
   });
   clipboard.on('error', function(e) {
       //エラー時
-      $("#share_btn").addClass('is-copied').text('お使いの端末はこの機能に対応していません');
+      $("#share_btn").addClass('is-copied').text('Sorry, Your browser is not applicable for this');
   });
 </script>
