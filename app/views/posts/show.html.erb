@@ -18,66 +18,14 @@
     ) ;
     </script>
 </div>
-<div class="show_button">
-  <% if @post.thumbsup - @post.thumbsdown > 0 %>
-    <div class="btn btn-lg btn-success net_thumbs_button">
-        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
-        <span><%= @post.thumbsup - @post.thumbsdown %></span>
-    </div>
-  <% elsif @post.thumbsup - @post.thumbsdown == 0 %>
-    <div class="btn btn-lg btn-warning net_thumbs_button">
-        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
-        <span><%= @post.thumbsup - @post.thumbsdown %></span>
-    </div>
-  <% else %>
-    <div class="btn btn-lg btn-danger net_thumbs_button">
-        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
-        <span><%= @post.thumbsup - @post.thumbsdown %></span>
-    </div>
-  <% end %>
-</div> 
-<div class="show_button">
-  <%= link_to  thumbsup_post_path, post_id: @post.id, class: 'btn btn-lg thumbs_down_button' do %>
-    <i class="far fa-thumbs-up"></i>
-    <span><%= @post.thumbsup %></span>
-  <% end %>
-</div>  
-<div class="show_button">
-  <%= link_to  thumbsdown_post_path, post_id: @post.id, class: 'btn btn-lg thumbs_down_button' do %>
-    <i class="far fa-thumbs-down"></i>
-    <span><%= @post.thumbsdown %></span>
-  <% end %>
+
+<div id="thumbs_ajax">
+  <%= render partial: 'thumbs', locals: {post: @post}  %>
 </div>
 
 <hr>
-
-<div class="show_button">
-  <div class="btn btn-lg net_like_button">
-      <i class="far fa-heart"></i> - <i class="far fa-frown"></i> = 
-      <span>0</span>
-  </div>
-</div> 
-
-<%= form_with(model: @dislike, local: true) do |f| %>
-  <div class="show_button">
-  <%= f.hidden_field :post_id, value: @post.id %>
-        <% if logged_in? %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= button_tag :type => "submit", :class =>'btn btn-lg thumbs_down_button' do %>
-        <i class="far fa-frown"></i>
-        <span><%= Dislike.where(post_id: @post.id).size %></span>
-        <% end %>  
-  <% else %>
-      <%= button_tag :type => "submit", :class =>'btn btn-lg thumbs_down_button', :disabled =>" disabled" do %>
-      <span>&nbsp;Sign In to Click</span><i class="far fa-frown"></i>
-      <% end %>  
-  <% end %>  
-  </div>  
-<% end %>
-
-<hr>
-<div class="show_button">
-  <span id="share_btn" class="btn btn-lg net_like_button" data-clipboard-text="How do you feel about this tweet? | @XXXXX | xxxxxxxxxxxxxxxxxxxx | <%= request.url %> | #MOOORE">Copy URL and Title</span>
+<div class="col-12 p-3">
+  <span id="share_btn" class="btn btn-block search_button rounded-pill mt-3" data-clipboard-text="How do you feel about this tweet? | @XXXXX | xxxxxxxxxxxxxxxxxxxx | <%= request.url %> | #MOOORE">Copy URL and Title</span>
 </div>
 
 <script type="text/javascript">

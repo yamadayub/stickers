@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :thumbsdown, :thumbsup]
+  before_action :set_variables, only: [:show, :thumbsdown, :thumbsup]
   
   #tweetの検索画面を表示する
   def index
@@ -41,32 +42,23 @@ class PostsController < ApplicationController
     #このTweetを引っ張ってきてfavorite_countを取る
     #Tweetモデルに実装する方がすっきりする
     
-    #該当Tweetの情報を改めて持ってくる
+    #該当の情報を改めて持ってくる
     
   end
   
   def thumbsdown
     # binding.pry
-    if @post.addthumbsdown
-      #flash[:success] = "Updateに成功しました"
-      #binding.pry
-      redirect_back(fallback_location: root_path)
-    else
-      #flash[:danger] = "Updateに失敗しました"
-      redirect_back(fallback_location: root_path)
-    end
+    @post.addthumbsdown
   end
   
   def thumbsup
     # binding.pry
-    if @post.addthumbsup
-      #flash[:success] = "Updateに成功しました"
-      #binding.pry
-      redirect_back(fallback_location: root_path)
-    else
-      #flash[:danger] = "Updateに失敗しました"
-      redirect_back(fallback_location: root_path)
-    end
+    @post.addthumbsup
+  end
+  
+  def set_variables
+    @id_thumbsup = "#thumbsup-link-#{@post.id}"
+    @id_thumbsdown = "#thumbsdown-link-#{@post.id}"
   end
   
   def find_post

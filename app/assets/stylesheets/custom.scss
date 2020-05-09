@@ -6,7 +6,7 @@ html{
 body {
     position: relative;
     padding-bottom: 72px;
-    background: #FFFFFFF;
+    background: #f0f8ff;
     font-size: 1rem;
     letter-spacing: 1px;
 }
@@ -53,18 +53,9 @@ body {
   background-color: #f0f8ff;
 }
 
-.search-box-search{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-  background-color: #EEEEEE;
-}
-
 .tweet_list{
   /*width: 100%;*/
-  min-height: 100%;
-  background-color: #8fbc8f;
+  background-color: #f0f8ff;
 }
 
 .tweet{
@@ -81,7 +72,7 @@ body {
   padding: 5px;
   flex-grow: 1;
   vertical-align: middle;
-  background-color: #FFFFFF;
+  background-color: #f0f8ff;
 }
 
 .tweet_icon{
@@ -98,10 +89,10 @@ body {
 
 .tweet_button{
   /*border: solid 1px #000000;*/
-  /*height: 100px;*/
+  height: 100%;
   margin-left: 10px;
   vertical-align: middle;
-  background-color: #FFFF11;
+  background-color: #f8b500;
 }
 
 .thumbs_down_button{
