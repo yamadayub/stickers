@@ -1,0 +1,31 @@
+<div class="col-12 p-3">
+  <% if post.thumbsup - post.thumbsdown > 0 %>
+    <div class="btn btn-block btn-success rounded-pill mt-1">
+        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
+        <span><%= post.thumbsup - post.thumbsdown %></span>
+    </div>
+  <% elsif post.thumbsup - post.thumbsdown == 0 %>
+    <div class="btn btn-block btn-warning rounded-pill mt-1">
+        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
+        <span><%= post.thumbsup - post.thumbsdown %></span>
+    </div>
+  <% else %>
+    <div class="btn btn-block btn-danger rounded-pill mt-1">
+        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
+        <span><%= post.thumbsup - post.thumbsdown %></span>
+    </div>
+  <% end %>
+</div> 
+
+<div class="col-12" id="thumbsup-link-<%= post.id %>">
+  <%= link_to  thumbsup_post_path, post_id: post.id, remote: true, class: 'btn btn-block btn-outline-secondary rounded-pill mt-1' do %>
+    <i class="far fa-thumbs-up"></i>
+    <span id="thumbsup_number"><%= post.thumbsup %></span>
+  <% end %>
+</div>  
+<div class="col-12" id="thumbsdown-link-<%= post.id %>">
+  <%= link_to  thumbsdown_post_path, post_id: post.id, remote: true, class: 'btn btn-block btn-outline-secondary rounded-pill mt-1' do %>
+    <i class="far fa-thumbs-down"></i>
+    <span id="thumbsdown_number"><%= post.thumbsdown %></span>
+  <% end %>
+</div>

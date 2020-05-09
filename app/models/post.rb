@@ -3,13 +3,13 @@ class Post < ApplicationRecord
   
   def addthumbsdown
     # binding.pry
-    # self.thumbsdown += 1
-    self.update(thumbsdown: self.thumbsdown += 1)
+    self.thumbsdown += 1
+    self.update(thumbsdown: self.thumbsdown)
   end
   
   def addthumbsup
     # binding.pry
-    # self.thumbsdown += 1
-    self.update(thumbsup: self.thumbsup += 1)
+    self.thumbsup += 1
+    self.update(thumbsup: self.thumbsup)
   end
 end

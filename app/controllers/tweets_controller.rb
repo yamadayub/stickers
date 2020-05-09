@@ -7,6 +7,7 @@ class TweetsController < ApplicationController
   
   def timeline
     tw = Tweet.new
+    @username = params[:search_username]
     @timeline = tw.search_timeline(params[:search_username])
     # binding.pry
     render 'tweets/timeline'

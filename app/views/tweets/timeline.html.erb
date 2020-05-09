@@ -1,8 +1,13 @@
-<div class="search-box-search">
-  <%= form_with(url: tweets_timeline_path, method: :get, local: true) do %>
-    <%= text_field :search_username, nil,  id: "tweet_search_timeline", name: "search_username", placeholder: @username, style: "width: 200px;"%><button title="検索" type="submit">User Search</button>
+<div class="col-12 form-group" style="background: #f0f8ff; margin-top: 1rem">
+  <%= form_with(url: tweets_timeline_path, method: :get, local: true) do |form| %>
+    <%= form.text_field :search_username, id: "tweet_search_timeline", name: "search_username", placeholder: @username, class: "form-control text-center" %>
+    <span>
+      <!--<%= form.submit value:"Account Search", class:"btn btn-block search_button rounded-pill mt-1" %>-->
+      <button title="Search" type="submit" class="btn btn-block search_button rounded-pill mt-2">Account Search</button>
+    </span>
   <% end %>
 </div>
+
 
 <div class='tweet_list'>
    <%= render partial: 'tweet_list', locals: {tweets: @timeline}  %>

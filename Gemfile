@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails'
 gem 'twitter'
 gem 'config'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
+
 
 
 # Use ActiveStorage variant

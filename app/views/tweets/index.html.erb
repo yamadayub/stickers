@@ -1,23 +1,30 @@
-<div class="container">
-  <div class="top-search">
-    <p class="top-remark">Mooore is a service that enables you to express more than "One Like" for a tweet.</p>
-    <p class="how to use">Here is how it works.</p>
-    <ol>
-      <li>Search tweets by text or user account and pick up a tweet to create a "More" page for the tweet.</li>
-      <li>Press thumbsup or thumbsdown button as many times as you want.</li>
-      <li>Copy the URL link and share your followers.</li>
-    </ol>
+<div class="col-12 mt-3 mb-5 p-2" style="background: #f0f8ff;">
+  <h4>MOAR is a service that enables you to express more than one "Like"</h4>
+</div>
 
-    <div id="top-search-by-text">
-      <%= form_with(url: tweets_search_path, method: :get, local: true) do %>
-        <%= text_field :keyword, nil,  id: "tweet_search", name: "keyword", placeholder: "Keyword for search", style: "width: 200px;"%><button title="検索" type="submit">Tweet Search</button>
-      <% end %>
-    </div>
-      <hr>
-    <div id="top-search-by-account">
-      <%= form_with(url: tweets_timeline_path, method: :get, local: true) do %>
-        <%= text_field :search_username, nil,  id: "tweet_search_timeline", name: "search_username", placeholder: "Account ID for search", style: "width: 200px;"%><button title="検索" type="submit">User Search</button>
-      <% end %>
-    </div>
-  </div>
+<div class="col-12 mt-5 mb-5 p-3" style="background: #f0f8ff;">
+  <h4 class="text-center">How to use</h4>
+   <div class="row">
+     <div class="col-12 mb-2">1. Search tweets by account-id and pick up a tweet to create a page to say MOAR</div>
+   </div>
+   <div class="row">
+     <div class="col-12 mb-2">2. Press thumbsup or thumbsdown button as many times as you want</div>
+   </div>
+   <div class="row">
+     <div class="col-12 mb-2">3. Copy the URL link and share it your followers</div>
+   </div>
+</div>
+
+<div class="col-12 mt-5 p-3" style="background: #f0f8ff;">
+    <h5 class="text-center">Let's search tweets to say MOAR!</h5>
+</div>
+
+<div class="col-12 p-3 form-group" style="background: #f0f8ff; padding: 10px">
+  <%= form_with(url: tweets_timeline_path, method: :get, local: true) do |form| %>
+    <%= form.text_field :search_username, id: "tweet_search_timeline", name: "search_username", placeholder: "Account ID for search", class: "form-control text-center" %>
+    <span>
+      <!--<%= form.submit value:"Account Search", class:"btn btn-block search_button rounded-pill mt-3" %>-->
+      <button title="Search" type="submit" class="btn btn-block search_button rounded-pill mt-3">Account Search</button>
+    </span>
+  <% end %>
 </div>
