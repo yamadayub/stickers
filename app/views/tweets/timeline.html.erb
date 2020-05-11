@@ -8,7 +8,10 @@
   <% end %>
 </div>
 
-
-<div class='tweet_list'>
+<div class='tweet_list' id="timeline">
    <%= render partial: 'tweet_list', locals: {tweets: @timeline}  %>
 </div>
+
+<div class="col-12" id="load_tweets">
+  <%= link_to "Load more tweets", tweets_timeline_reload_path( username: @username, last_tweet_id: @last_tweet_id ), remote: true, class: 'btn btn-block search_button rounded-pill mt-3 mb-3' %>
+</div>  

@@ -37,13 +37,14 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @dislike = Dislike.new
+    tw = Tweet.new
+    @tweet_info = tw.get_tweet_info(@post.tweet_id)
+    
     # @dislike_coount = Dislike.count_dislikes(@post)
     #binding.pry
     #このTweetを引っ張ってきてfavorite_countを取る
     #Tweetモデルに実装する方がすっきりする
-    
     #該当の情報を改めて持ってくる
-    
   end
   
   def thumbsdown

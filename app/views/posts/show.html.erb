@@ -1,4 +1,6 @@
-<% provide :title, @post.id %>
+<% content_for :title do %>
+  SAY MOAR
+<% end %>
 
 <div id="tweet-container">
     <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
@@ -25,17 +27,15 @@
 
 <hr>
 <div class="col-12 p-3">
-  <span id="share_btn" class="btn btn-block search_button rounded-pill mt-3" data-clipboard-text="How do you feel about this tweet? | @XXXXX | xxxxxxxxxxxxxxxxxxxx | <%= request.url %> | #MOOORE">Copy URL and Title</span>
+  <span id="share_btn" class="btn btn-block search_button rounded-pill mt-3" data-clipboard-text="How do you feel about this? | &quot;<%= @tweet_info.text.slice(0..30) %>...&quot;|<%= request.url %>|#MOAR">Copy URL and Title</span>
 </div>
 
 <script type="text/javascript">
   var clipboard = new Clipboard('#share_btn');
       clipboard.on('success', function(e) {
-      //コピー成功時
       $("#share_btn").addClass('is-copied').text('Copied');
   });
   clipboard.on('error', function(e) {
-      //エラー時
       $("#share_btn").addClass('is-copied').text('Sorry, Your browser is not applicable for this');
   });
 </script>

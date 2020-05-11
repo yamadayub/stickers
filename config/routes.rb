@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to:'tweets#index'
   get '/tweets/search', to: 'tweets#search'
   get '/tweets/timeline', to: 'tweets#timeline'
+  get '/tweets/timeline_reload', to: 'tweets#timeline_reload'
   
   resources :posts, only: [:create, :show] do
     member do
