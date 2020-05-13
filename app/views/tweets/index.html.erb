@@ -1,8 +1,8 @@
-<div class="col-12 mt-3 mb-5 p-2" style="background: #f0f8ff;">
+<div class="col-12 mt-3 mb-3 p-2" style="background: #f0f8ff;">
   <h4>MOAR is a service that enables you to express more than one "Like"</h4>
 </div>
 
-<div class="col-12 mt-5 mb-5 p-3" style="background: #f0f8ff;">
+<div class="col-12 mt-3 mb-3 p-3" style="background: #f0f8ff;">
   <h4 class="text-center">How to use</h4>
    <div class="row">
      <div class="col-12 mb-2">1. Search tweets by account-id and pick up a tweet to create a page to say MOAR</div>
@@ -15,7 +15,7 @@
    </div>
 </div>
 
-<div class="col-12 mt-5 p-3" style="background: #f0f8ff;">
+<div class="col-12 mt-3 p-3" style="background: #f0f8ff;">
     <h5 class="text-center">Let's search tweets to say MOAR!</h5>
 </div>
 
@@ -24,7 +24,27 @@
     <%= form.text_field :search_username, id: "tweet_search_timeline", name: "search_username", placeholder: "Account ID for search", class: "form-control text-center" %>
     <span>
       <!--<%= form.submit value:"Account Search", class:"btn btn-block search_button rounded-pill mt-3" %>-->
-      <button title="Search" type="submit" class="btn btn-block search_button rounded-pill mt-3" id="account_search">Account Search</button>
+      <button title="Search" type="submit" class="btn btn-block search_button rounded-pill mt-3" id="account_search_btn">Account Search</button>
     </span>
   <% end %>
 </div>
+
+<script>
+    $(function(){
+      $('#account_search_btn').on('click', function(){
+        if($('#tweet_search_timeline').val() === ''){
+
+        	swal({
+        	title: "Ooops",
+        	text: "No Account ID for search",
+            confirmButtonText: 'What?',
+            confirmButtonColor: '#DD6B55',
+            icon: "error"
+        	});
+
+            $('#tweet_search_timeline').focus();
+            return false;
+        }
+      });
+    });
+</script>
