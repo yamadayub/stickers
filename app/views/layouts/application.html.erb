@@ -18,17 +18,17 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 
-  <body>
-    <header>
+  <body style="min-height: 100vh">
+    <header class="fixed-top">
     <%= render 'layouts/navbar' %>
     </header>
 
-    <main class="container-xs d-flex flex-column">
+    <main class="container-xs d-flex flex-column body-content">
       <!--<%= render 'layouts/flash_messages' %>-->
       <%= yield %>
     </div>
 
-    <footer class="footer">
+    <footer class="footer fixed-bottom">
         <%= render 'layouts/footer' %>
     </footer>
   </body>
