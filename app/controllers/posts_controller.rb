@@ -21,6 +21,10 @@ class PostsController < ApplicationController
     @post.sns_post_url = params[:post][:sns_post_url]
     @post.thumbsdown = 0
     @post.thumbsup = 0
+    @post.profile_image_url = params[:post][:profile_image_url]
+    @post.text = params[:post][:text]
+    @post.net_thumbs = 0
+    @post.tweet_url = params[:post][:tweet_url]
     #binding.pry
     
     if @post.save

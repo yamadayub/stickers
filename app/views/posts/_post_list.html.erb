@@ -1,5 +1,24 @@
 <% if posts.present? %>
   <% posts.each_with_index do |post, i| %>
-    <p><%= i+1 %>:<%= post.tweet_id %>:<%= post.thumbsdown %>:<%= post.thumbsup %></p>
+
+    <div class="tweet">
+      <span class=""><%= i+1 %></span>
+      
+      <img src="<%= post.profile_image_url %>" class="rounded-circle tweet_icon">
+      <span class="tweet_text"><%= post.text %></span>
+      
+      <% if request.fullpath == '/best' %>
+        <i class="far fa-thumbs-up"></i>
+        <span id="thumbsup_number"><%= post.thumbsup %></span>
+      <% elsif  request.fullpath == '/worst' %>
+        <i class="far fa-thumbs-down"></i>
+        <span id="thumbsdown_number"><%= post.thumbsdown %></span>
+      <% end %>
+      
+      <%= link_to post_path(post), class: 'btn btn-default btn-lg tweet_button' do %>
+          <i class="fas fa-angle-right"></i>
+      <% end %>
+    </div>
+
   <% end %>
 <% end %>
