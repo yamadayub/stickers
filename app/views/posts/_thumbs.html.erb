@@ -10,7 +10,7 @@
         <span><%= post.thumbsup - post.thumbsdown %></span>
     </div>
   <% else %>
-    <div class="order border-dark bg-danger mt-1 p-2 text-center font-weight-bold">
+    <div class="border border-dark bg-danger mt-1 p-2 text-center font-weight-bold">
         <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
         <span><%= post.thumbsup - post.thumbsdown %></span>
     </div>
@@ -18,13 +18,13 @@
 </div> 
 
 <div class="col-12" id="thumbsup-link-<%= post.id %>">
-  <%= link_to  thumbsup_post_path, post_id: post.id, remote: true, class: 'btn btn-block btn-outline-dark bg-white rounded-pill mt-1' do %>
+  <%= link_to  thumbsup_post_path, post_id: post.id, remote: true, class: 'btn btn-block btn-outline-dark bg-white rounded-pill mt-5 mb-5' do %>
     <i class="far fa-thumbs-up"></i>
     <span id="thumbsup_number"><%= post.thumbsup %></span>
   <% end %>
 </div>  
 <div class="col-12" id="thumbsdown-link-<%= post.id %>">
-  <%= link_to  thumbsdown_post_path, post_id: post.id, remote: true, class: 'btn btn-block btn-outline-dark bg-white rounded-pill mt-1' do %>
+  <%= link_to  thumbsdown_post_path, post_id: post.id, remote: true, class: 'btn btn-block btn-outline-dark bg-white rounded-pill mt-5' do %>
     <i class="far fa-thumbs-down"></i>
     <span id="thumbsdown_number"><%= post.thumbsdown %></span>
   <% end %>

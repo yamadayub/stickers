@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-  get 'dislikes/create'
-  get 'dislikes/destroy'
   root to:'tweets#index'
   get '/tweets/search', to: 'tweets#search'
   get '/tweets/timeline', to: 'tweets#timeline'
@@ -15,13 +10,12 @@ Rails.application.routes.draw do
       get :thumbsup
     end
   end
-  #get '/posts/show/:id', to: 'posts#show'
-  #post '/posts/create', to: 'posts#create'
+  
+  get '/worst', to: 'posts#worst'
+  get '/best', to: 'posts#best'
   
   get '/signup', to: 'users#signup'
   post '/users/create', to: 'users#create'
-  
-  resources :dislikes, only: [:create, :destroy] 
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

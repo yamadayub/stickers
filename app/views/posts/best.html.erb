@@ -1,0 +1,7 @@
+<% content_for :title do %>
+  BEST
+<% end %>
+
+<div class='tweet_list' id="timeline">
+   <%= render partial: 'post_list', locals: {posts: @posts_best}  %>
+</div>

@@ -36,15 +36,8 @@ class PostsController < ApplicationController
   #post情報を表示する
   def show
     @post = Post.find(params[:id])
-    @dislike = Dislike.new
     tw = Tweet.new
     @tweet_info = tw.get_tweet_info(@post.tweet_id)
-    
-    # @dislike_coount = Dislike.count_dislikes(@post)
-    #binding.pry
-    #このTweetを引っ張ってきてfavorite_countを取る
-    #Tweetモデルに実装する方がすっきりする
-    #該当の情報を改めて持ってくる
   end
   
   def thumbsdown
@@ -55,6 +48,15 @@ class PostsController < ApplicationController
   def thumbsup
     # binding.pry
     @post.addthumbsup
+  end
+  
+  def worst
+    @posts_worst = Post.limit(100).order(thumbsdown: :desc)
+  end
+  
+  def best
+    @posts_best = Post.limit(100).order(thumbsup: :desc)
+    # binding.pry
   end
   
   def set_variables

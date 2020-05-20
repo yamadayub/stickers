@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_04_11_164939) do
 
-  create_table "dislikes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "post_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_dislikes_on_post_id"
-    t.index ["user_id"], name: "index_dislikes_on_user_id"
-  end
-
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "sns_post_url"
     t.datetime "created_at", null: false
@@ -37,6 +28,4 @@ ActiveRecord::Schema.define(version: 2020_04_11_164939) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "dislikes", "posts"
-  add_foreign_key "dislikes", "users"
 end

@@ -46,7 +46,7 @@ class Tweet
       config.consumer_key         = Settings.twitter_api.consumer_key
       config.consumer_secret      = Settings.twitter_api.consumer_secret
     end
-    timeline = client.user_timeline(username, { count: 50 })
+    timeline = client.user_timeline(username, { count: 50, include_rts: false, exclude_replies: true })
     @username = username
     @tweets = []
     # binding.pry
@@ -73,7 +73,7 @@ class Tweet
     #binding.pry
     
     #tweet_count以降のtweetsを取得
-    timeline = client2.user_timeline(username, options = { max_id: last_tweet_id, count: 21 })
+    timeline = client2.user_timeline(username, options = { max_id: last_tweet_id, count: 21, include_rts: false, exclude_replies: true  })
     #binding.pry    
     
     @username = username
