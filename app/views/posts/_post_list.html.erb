@@ -2,17 +2,17 @@
   <% posts.each_with_index do |post, i| %>
 
     <div class="tweet">
-      <span class=""><%= i+1 %></span>
+      <h5 class="m-2"><%= i+1 %></h5>
       
       <img src="<%= post.profile_image_url %>" class="rounded-circle tweet_icon">
       <span class="tweet_text"><%= post.text %></span>
       
       <% if request.fullpath == '/best' %>
         <i class="far fa-thumbs-up"></i>
-        <span id="thumbsup_number"><%= post.thumbsup %></span>
+        <span id="thumbsup_number">&nbsp;<%= post.thumbsup %></span>
       <% elsif  request.fullpath == '/worst' %>
         <i class="far fa-thumbs-down"></i>
-        <span id="thumbsdown_number"><%= post.thumbsdown %></span>
+        <span id="thumbsdown_number">&nbsp;<%= post.thumbsdown %></span>
       <% end %>
       
       <%= link_to post_path(post), class: 'btn btn-default btn-lg tweet_button' do %>

@@ -7,10 +7,10 @@ class TweetsController < ApplicationController
   
   def timeline
     tw = Tweet.new
-    @username = params[:search_username]
-    @timeline = tw.search_timeline(params[:search_username])
+    # binding.pry
+    @username = params[:search_username].gsub(" ", "").gsub("　", "")
+    @timeline = tw.search_timeline(@username)
     @last_tweet_id = @timeline.last.tweet_id
-    #binding.pry
     render 'tweets/timeline'
   end
   
@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
   def timeline_reload
     tw = Tweet.new
     #binding.pry
-    @username = params[:username]
+    @username = params[:username].gsub(" ", "").gsub("　", "")
     @last_tweet_id = params[:last_tweet_id]
     @add_tweets = tw.add_tweets_for_timeline(@username, @last_tweet_id)    
     @last_tweet_id = @add_tweets.last.tweet_id
