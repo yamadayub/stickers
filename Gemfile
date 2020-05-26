@@ -32,6 +32,7 @@ gem 'config'
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem 'bitly'
 
 
 

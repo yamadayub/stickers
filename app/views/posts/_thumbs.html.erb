@@ -17,15 +17,17 @@
   <% end %>
 </div> 
 
-<div class="col-12" id="thumbsup-link-<%= post.id %>">
-  <%= link_to  thumbsup_post_path, post_id: post.id, remote: true, class: 'btn btn-block btn-outline-dark bg-white rounded-pill mt-5 mb-5' do %>
-    <i class="far fa-thumbs-up"></i>
-    <span id="thumbsup_number"><%= post.thumbsup %></span>
-  <% end %>
-</div>  
-<div class="col-12" id="thumbsdown-link-<%= post.id %>">
-  <%= link_to  thumbsdown_post_path, post_id: post.id, remote: true, class: 'btn btn-block btn-outline-dark bg-white rounded-pill mt-5' do %>
-    <i class="far fa-thumbs-down"></i>
-    <span id="thumbsdown_number"><%= post.thumbsdown %></span>
-  <% end %>
+<div class="row justify-content-around" >
+  <div class="thumbs_button" id="thumbsup-link-<%= post.id %>">
+    <%= link_to  thumbsup_post_path, post_id: post.id, remote: true, class: 'btn-circle-border-up' do %>
+      <i class="far fa-thumbs-up"></i>
+      <span id="thumbsup_number"><%= post.thumbsup %></span>
+    <% end %>
+  </div>
+  <div class="thumbs_button" id="thumbsdown-link-<%= post.id %>">
+    <%= link_to  thumbsdown_post_path, post_id: post.id, remote: true, class: 'btn-circle-border-down' do %>
+      <i class="far fa-thumbs-down"></i>
+      <span id="thumbsdown_number"><%= post.thumbsdown %></span>
+    <% end %>
+  </div>
 </div>
