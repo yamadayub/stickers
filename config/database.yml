@@ -59,4 +59,4 @@ production:
   pool: 5
   database: thumbsmore_production
   username: thumbsmore
-  password: <%= ENV['BOO_DATABASE_PASSWORD'] %>
+  password: <%= ENV['THUMBSMORE_DATABASE_PASSWORD'] %>
