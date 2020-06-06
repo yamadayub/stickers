@@ -33,7 +33,7 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'bitly'
-
+gem 'google-analytics-rails'
 
 
 # Use ActiveStorage variant
