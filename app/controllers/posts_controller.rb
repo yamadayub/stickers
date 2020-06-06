@@ -25,6 +25,7 @@ class PostsController < ApplicationController
     @post.text = params[:post][:text]
     @post.net_thumbs = 0
     @post.tweet_url = params[:post][:tweet_url]
+    @post.like_in_twitter = params[:post][:like_in_twitter]
     #binding.pry
     
     if @post.save
@@ -42,6 +43,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     tw = Tweet.new
     @tweet_info = tw.get_tweet_info(@post.tweet_id)
+    @post.like_in_twitter = @tweet_info.favorite_count
+    @post.net_thumbs = @post.like_in_twitter + @post.thumbsup - @post.thumbsdown
+    @post.save
   end
   
   def thumbsdown
@@ -55,12 +59,11 @@ class PostsController < ApplicationController
   end
   
   def worst
-    @posts_worst = Post.limit(100).order(thumbsdown: :desc)
+    @posts_worst = Post.limit(100).order(net_thumbs: :asc)
   end
   
   def best
-    @posts_best = Post.limit(100).order(thumbsup: :desc)
-    # binding.pry
+    @posts_best = Post.limit(100).order(net_thumbs: :desc)
   end
   
   def set_variables

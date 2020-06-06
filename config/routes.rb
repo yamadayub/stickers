@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'static_pages/readme'
+  get 'static_pages/about'
   root to:'tweets#index'
   get '/tweets/search', to: 'tweets#search'
   get '/tweets/timeline', to: 'tweets#timeline'

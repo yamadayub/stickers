@@ -1,33 +1,38 @@
-<div class="col-12 p-3">
-  <% if post.thumbsup - post.thumbsdown > 0 %>
-    <div class="border border-dark bg-success mt-1 p-2 text-center font-weight-bold">
-        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
-        <span><%= post.thumbsup - post.thumbsdown %></span>
+<div class="box29">
+  <div class="box-title">Thumbs Score</div>
+  <% if post.thumbsup + post.like_in_twitter - post.thumbsdown > 0 %>
+    <div class="box-contens">
+        <i class="far fa-heart"></i> + <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
+        <span><%= post.thumbsup + post.like_in_twitter - post.thumbsdown %></span>
     </div>
-  <% elsif post.thumbsup - post.thumbsdown == 0 %>
+  <% elsif post.thumbsup + post.like_in_twitter - post.thumbsdown == 0 %>
     <div class="border border-dark bg-white mt-1 p-2 text-center font-weight-bold">
-        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
-        <span><%= post.thumbsup - post.thumbsdown %></span>
+        <i class="far fa-heart"></i> + <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
+        <span><%= post.thumbsup + post.like_in_twitter - post.thumbsdown %></span>
     </div>
   <% else %>
     <div class="border border-dark bg-danger mt-1 p-2 text-center font-weight-bold">
-        <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
-        <span><%= post.thumbsup - post.thumbsdown %></span>
+        <i class="far fa-heart"></i> + <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
+        <span><%= post.thumbsup + post.like_in_twitter - post.thumbsdown %></span>
     </div>
   <% end %>
+  <div class="box-contens">
+    <i class="far fa-thumbs-up"></i>:<%= post.thumbsup %>
+  </div>
+  <div class="box-contens">
+    <i class="far fa-thumbs-down"></i>:<%= post.thumbsdown %>
+  </div>
 </div> 
 
 <div class="row justify-content-around" >
   <div class="thumbs_button" id="thumbsup-link-<%= post.id %>">
     <%= link_to  thumbsup_post_path, post_id: post.id, remote: true, class: 'btn-circle-border-up' do %>
       <i class="far fa-thumbs-up"></i>
-      <span id="thumbsup_number"><%= post.thumbsup %></span>
     <% end %>
   </div>
   <div class="thumbs_button" id="thumbsdown-link-<%= post.id %>">
     <%= link_to  thumbsdown_post_path, post_id: post.id, remote: true, class: 'btn-circle-border-down' do %>
       <i class="far fa-thumbs-down"></i>
-      <span id="thumbsdown_number"><%= post.thumbsdown %></span>
     <% end %>
   </div>
 </div>

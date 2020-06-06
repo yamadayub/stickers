@@ -6,6 +6,7 @@
       <%= form.hidden_field :profile_image_url, :value => tw.profile_image_url  %>
       <%= form.hidden_field :text, :value => tw.text  %>
       <%= form.hidden_field :tweet_url, :value => tw.tweet_url  %>
+      <%= form.hidden_field :like_in_twitter, :value => tw.favorite_count %>
       <div class="tweet">
         <img src="<%= tw.profile_image_url %>" class="rounded-circle tweet_icon">
         <span class="tweet_text"><%= tw.text %></span>

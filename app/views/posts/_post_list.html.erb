@@ -2,19 +2,26 @@
   <% posts.each_with_index do |post, i| %>
 
     <div class="tweet">
-      <h5 class="m-2"><%= i+1 %></h5>
-      
-      <img src="<%= post.profile_image_url %>" class="rounded-circle tweet_icon">
-      <span class="tweet_text"><%= post.text %></span>
-      
-      <% if request.fullpath == '/best' %>
-        <i class="far fa-thumbs-up"></i>
-        <span id="thumbsup_number">&nbsp;<%= post.thumbsup %></span>
-      <% elsif  request.fullpath == '/worst' %>
-        <i class="far fa-thumbs-down"></i>
-        <span id="thumbsdown_number">&nbsp;<%= post.thumbsdown %></span>
-      <% end %>
-      
+      <span class="m-2 text-center"><%= i+1 %>
+        <img src="<%= post.profile_image_url %>" class="rounded-circle tweet_icon m-1">
+  
+        <span id="thumbsup_number" class="text-center">&nbsp;
+          <% if post.net_thumbs >= 1000000 %>
+            +<%= post.net_thumbs/1000000.floor(1) %>M
+          <% elsif post.net_thumbs >= 1000 %>
+            +<%= post.net_thumbs/1000.floor(1) %>K
+          <% elsif post.net_thumbs >= 0 %>
+            +<%= post.net_thumbs %>
+          <% elsif post.net_thumbs <= -1000000 %>
+            -<%= post.net_thumbs/1000000.floor(1) %>M
+          <% elsif post.net_thumbs <= -1000 %>
+            -<%= post.net_thumbs/1000.floor(1) %>K
+          <% else %>
+            -<%= post.net_thumbs %>
+          <% end %>  
+        </span>
+      </span>
+      <span class="tweet_text"><%= post.text %></span>      
       <%= link_to post_path(post), class: 'btn btn-default btn-lg tweet_button' do %>
           <i class="fas fa-angle-right"></i>
       <% end %>
