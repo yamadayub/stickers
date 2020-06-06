@@ -47,8 +47,16 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: boo_production
+#   username: boo
+#   password: <%= ENV['BOO_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
-  database: boo_production
-  username: boo
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: thumbsmore_production
+  username: thumbsmore
   password: <%= ENV['BOO_DATABASE_PASSWORD'] %>
