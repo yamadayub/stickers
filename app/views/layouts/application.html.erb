@@ -17,6 +17,8 @@
     <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= analytics_init if Rails.env.production? %>
+    <%= display_meta_tags(default_meta_tags) %>
+    <% set_meta_tags canonical: 'https://www.thumbsmore.com/' %>
   </head>
 
   <body style="min-height: 100vh">

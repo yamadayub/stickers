@@ -1,3 +1,5 @@
+<% set_meta_tags title:'Timeline', description: 'Thumbsmore enables you to express more than one "Like"' %>
+
 <div class="col-12 form-group" style="background: #f0f8ff; margin-top: 1rem">
   <%= form_with(url: tweets_timeline_path, method: :get, local: true) do |form| %>
     <%= form.text_field :search_username, id: "tweet_search_timeline", name: "search_username", placeholder: @username, class: "form-control text-center" %>

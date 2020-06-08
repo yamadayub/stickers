@@ -34,7 +34,8 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'bitly'
 gem 'google-analytics-rails'
-
+gem 'meta-tags'
+gem 'sitemap_generator'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
