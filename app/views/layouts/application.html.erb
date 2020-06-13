@@ -18,6 +18,7 @@
     <%= analytics_init if Rails.env.production? %>
     <%= display_meta_tags(default_meta_tags) %>
     <% set_meta_tags canonical: 'https://www.thumbsmore.com/' %>
+    <%= favicon_link_tag('favicon.png') %>
   </head>
 
   <body style="min-height: 100vh">
