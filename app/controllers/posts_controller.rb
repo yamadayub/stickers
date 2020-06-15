@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     @post.net_thumbs = 0
     @post.tweet_url = params[:post][:tweet_url]
     @post.like_in_twitter = params[:post][:like_in_twitter]
-    @post.twitter_usernane = params[:post][:username]
+    @post.twitter_username = params[:post][:username]
     #binding.pry
     
     if @post.save
