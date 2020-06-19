@@ -1,8 +1,5 @@
 class TweetsController < ApplicationController
   def search
-    tw = Tweet.new
-    @tws = tw.search_tweet(params[:keyword])
-    render 'tweets/search'
   end
   
   def timeline

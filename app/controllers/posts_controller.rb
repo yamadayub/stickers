@@ -48,7 +48,12 @@ class PostsController < ApplicationController
     @post.net_thumbs = @post.like_in_twitter + @post.thumbsup - @post.thumbsdown
     @post.save
   end
-  
+
+  def random
+    @post = Post.where( 'id >= ?', rand(Post.first.id..Post.last.id) ).first
+    redirect_to @post
+  end
+
   def thumbsdown
     # binding.pry
     @post.addthumbsdown

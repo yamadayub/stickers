@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   get 'static_pages/about'
-  root to:'tweets#index'
+  root to:'posts#random'
   get '/tweets/search', to: 'tweets#search'
   get '/tweets/timeline', to: 'tweets#timeline'
   get '/tweets/timeline_reload', to: 'tweets#timeline_reload'
+  get '/random', to: 'posts#random'
   
   resources :posts, only: [:create, :show] do
     member do

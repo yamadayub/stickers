@@ -1,13 +1,53 @@
-<div class="col-12 form-group" style="background: #f0f8ff; padding: 10px">
+<% set_meta_tags title:'Top', description: 'Thumbsmore enables you to express more than one "Like" on a tweet' %>
+
+<div class="col-12 mt-3 mb-3 p-2 text-center" style="background: #f0f8ff;">
+  <h1 class="mb-3">Have you ever wanted to press "LIKE" button more than once?</h1>
+  <h5>If yes, thumbsmore is the place for you</h4>
+</div>
+
+<div class="col-12 mt-3 mb-2 p-3" style="background: #f0f8ff;">
+  <h4 class="text-center mb-2">How to use</h4>
+   <div class="row m-2">
+     <div class="col-12 mb-2">1. Search tweets by username and pick up a tweet to create a page</div>
+   </div>
+   <div class="row m-2">
+     <div class="col-12 mb-2">2. Press thumbs-up or thumbs-down as many times as you want</div>
+   </div>
+   <div class="row m-2">
+     <div class="col-12 mb-2">3. Copy the URL link and share it your followers</div>
+   </div>
+</div>
+
+<div class="col-12 mt-3 p-3" style="background: #f0f8ff;">
+    <h5 class="text-center">Let's search tweets to thumb more!</h5>
+</div>
+
+<div class="col-12 p-3 form-group" style="background: #f0f8ff; padding: 10px">
   <%= form_with(url: tweets_timeline_path, method: :get, local: true) do |form| %>
-    <%= form.text_field :search_username, id: "tweet_search_timeline", name: "search_username", placeholder: @username, class: "form-control text-center" %>
+    <%= form.text_field :search_username, id: "tweet_search_timeline", name: "search_username", placeholder: "Username for search", class: "form-control text-center" %>
     <span>
       <!--<%= form.submit value:"Account Search", class:"btn btn-block search_button rounded-pill mt-3" %>-->
-      <button title="Search" type="submit" class="btn btn-block search_button rounded-pill mt-3">Account Search</button>
+      <button title="Search" type="submit" class="btn btn-block search_button rounded-pill mt-3" id="account_search_btn">Account Search</button>
     </span>
   <% end %>
 </div>
 
-<div class='tweet_list'>
-   <%= render partial: 'tweet_list', locals: {tweets: @tws}  %>
-</div>
+<script>
+    $(function(){
+      $('#account_search_btn').on('click', function(){
+        if($('#tweet_search_timeline').val() === ''){
+
+        	swal({
+        	title: "Ooops",
+        	text: "No Account ID for search",
+            confirmButtonText: 'What?',
+            confirmButtonColor: '#DD6B55',
+            icon: "error"
+        	});
+
+            $('#tweet_search_timeline').focus();
+            return false;
+        }
+      });
+    });
+</script>
