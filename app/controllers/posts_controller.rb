@@ -45,7 +45,8 @@ class PostsController < ApplicationController
     tw = Tweet.new
     @tweet_info = tw.get_tweet_info(@post.tweet_id)
     @post.like_in_twitter = @tweet_info.favorite_count
-    @post.net_thumbs = @post.like_in_twitter + @post.thumbsup - @post.thumbsdown
+    @post.net_thumbs = @post.thumbsup - @post.thumbsdown
+    @post.total_net_like = @post.like_in_twitter + @post.thumbsup - @post.thumbsdown
     @post.save
   end
 
