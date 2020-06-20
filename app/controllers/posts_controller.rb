@@ -66,7 +66,7 @@ class PostsController < ApplicationController
   end
   
   def worst
-    @posts_worst = Post.limit(100).order(net_thumbs: :asc)
+    @posts_worst = Post.where('net_thumbs < 0').limit(100).order(net_thumbs: :asc)
   end
   
   def best

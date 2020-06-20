@@ -13,11 +13,11 @@
           <% elsif post.net_thumbs >= 0 %>
             +<%= post.net_thumbs %>
           <% elsif post.net_thumbs <= -1000000 %>
-            -<%= post.net_thumbs/1000000.floor(1) %>M
+            <%= post.net_thumbs/1000000.floor(1) %>M
           <% elsif post.net_thumbs <= -1000 %>
-            -<%= post.net_thumbs/1000.floor(1) %>K
+            <%= post.net_thumbs/1000.floor(1) %>K
           <% else %>
-            -<%= post.net_thumbs %>
+            <%= post.net_thumbs %>
           <% end %>  
         </span>
       </span>
