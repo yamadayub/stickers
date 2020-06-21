@@ -43,6 +43,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     tw = Tweet.new
+    @rank = Post.where("net_thumbs > ?", @post.net_thumbs).count + 1
     @tweet_info = tw.get_tweet_info(@post.tweet_id)
     @post.like_in_twitter = @tweet_info.favorite_count
     @post.net_thumbs = @post.thumbsup - @post.thumbsdown
