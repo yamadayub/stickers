@@ -29,12 +29,12 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+ja:
   general:
-    top_note1: 'Have you ever wanted to press LIKE button more than once?'
-    top_note2: 'If yes, thumbsmore is the place for you'
-    how_to_use: 'How to use'
-    step1: '1. Search tweets by username and pick up a tweet to create a page'
-    step2: '2. Press thumbs-up or thumbs-down as many times as you want'
-    step3: '3. Copy the URL link and share it your followers'
-    lets_search: 'Search Tweets and Thumbs more!'
+    top_note1: '「もっといいねボタンを押したい！」と思ったことはありませんか？'
+    top_note2: 'Thumbsmoreでお気に入りのTweetに好きなだけ「いいね」してください'
+    how_to_use: '使い方'
+    step1: '1. Twitterのユーザー名で検索してTweetを選んでください'
+    step2: '2. 好きなだけThumbsボタンを押してください'
+    step3: '3. URLをコピーしてFollowerにシェアしましょう'
+    lets_search: '↓にユーザー名を入れてTweetを検索！'
