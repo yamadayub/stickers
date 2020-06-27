@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Boo
   class Application < Rails::Application
-    before_action :detect_locale
     
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
@@ -23,9 +22,5 @@ module Boo
     
     config.i18n.default_locale = :en
     
-    private 
-      def detect_locale
-        I18n.locale = request.headers['Accept-Language'].scan(/¥A[a-z]{2}/).first
-      end
   end
 end

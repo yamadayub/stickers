@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
-
+  before_action :detect_locale
+    
   def require_user_logged_in
     unless logged_in?
       redirect_to login_url
@@ -19,6 +20,11 @@ class ApplicationController < ActionController::Base
   # rescue_from Twitter::Error::Unauthorized, with: :twitter_unauthorized
 
   private
+  
+    def detect_locale
+      I18n.locale = request.headers['Accept-Language'].scan(/¥A[a-z]{2}/).first
+    end
+
     def url_not_found(e)
       @exception = e
       render template: 'errors/url_not_found'
