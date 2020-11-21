@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_140650) do
+ActiveRecord::Schema.define(version: 2020_11_21_045614) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "sns_post_url"
@@ -26,13 +26,6 @@ ActiveRecord::Schema.define(version: 2020_06_20_140650) do
     t.integer "like_in_twitter"
     t.string "twitter_username"
     t.integer "total_net_like"
-  end
-
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
