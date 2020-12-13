@@ -93,4 +93,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   GA.tracker = "UA-11043376-4"
+  
+  config.action_mailer.default_url_options = { host: 'http://thumbsmore.herokuapp.com', port: 3000 }
 end

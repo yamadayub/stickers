@@ -36,6 +36,7 @@ gem 'bitly'
 gem 'google-analytics-rails'
 gem 'meta-tags'
 gem 'sitemap_generator'
+gem 'devise'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
