@@ -37,6 +37,8 @@ gem 'google-analytics-rails'
 gem 'meta-tags'
 gem 'sitemap_generator'
 gem 'devise'
+gem 'omniauth-twitter'
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
