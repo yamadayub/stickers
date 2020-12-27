@@ -1,0 +1,24 @@
+<% if tweets.present? %>
+  <% tweets.each_with_index do |tw, i| %>
+    <%= form_with model: Post.new do |form| %>
+      <%= form.hidden_field :tweet_id, :value => tw.id  %>
+      <%= form.hidden_field :sns_post_url, :value => "https://twitter.com/#{tw.user.name}/status/#{tw.id}"  %>
+      <%= form.hidden_field :profile_image_url, :value => tw.user.profile_image_url  %>
+      <%= form.hidden_field :text, :value => tw.text  %>
+      <%= form.hidden_field :tweet_url, :value => "https://twitter.com/#{tw.user.name}/status/#{tw.id}"  %>
+      <%= form.hidden_field :like_in_twitter, :value => tw.user.favourites_count %>
+      <%= form.hidden_field :username, :value => tw.user.screen_name %>
+      <%= form.hidden_field :max_id, :value => max_id %>
+      <div class="tweet">
+        <img src="<%= tw.user.profile_image_url %>" class="rounded-circle tweet_icon">
+        <span class="tweet_text"><%= tw.text %></span>
+        <%= button_tag :type => "submit", :class =>"btn btn-default btn-lg tweet_button" do %>
+          <i class="fas fa-angle-right"></i>
+        <% end %>
+      </div>
+      <% end %>
+  <% end %>
+<% end %>
+
+
+

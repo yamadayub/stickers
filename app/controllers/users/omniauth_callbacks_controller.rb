@@ -16,6 +16,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     provider = provider.to_s
 
     @user = User.find_for_oauth(request.env['omniauth.auth'])
+    
+    #binding.pry
+    auth = request.env['omniauth.auth']
+    session[:oauth_token] = auth['credentials']['token']
+    session[:oauth_token_secret] = auth['credentials']['secret']
 
     if @user.persisted?
       print("persisted true")

@@ -1,0 +1,19 @@
+add_mytimeline = `\
+  <% @mytimeline_add.each_with_index do |tw, i| %>\
+    <%= form_with model: Post.new do |form| %>\
+      <%= form.hidden_field :tweet_id, :value => tw.id  %>\
+      <%= form.hidden_field :sns_post_url, :value => "https://twitter.com/#{tw.user.name}/status/#{tw.id}"  %>\
+      <div class="tweet">\
+        <img src="<%= tw.user.profile_image_url %>" class="rounded-circle tweet_icon">\
+        <span class="tweet_text"><%= tw.text %></span>\
+        <%= button_tag :type => "submit", :class =>"btn btn-default btn-lg tweet_button" do %>\
+          <i class="fas fa-angle-right"></i>\
+        <% end %>\
+      </div>\
+      <% end %>\
+  <% end %>\
+  `;
+
+$("#mytimeline").append(add_mytimeline);
+$("#load_mytimeline_tweets").html(`<%= link_to "Load more tweets", tweets_mytimeline_reload_path( last_tweet_id: @last_tweet_id ), remote: true, class: 'btn btn-block search_button rounded-pill mt-3 mb-3' %>`);
+

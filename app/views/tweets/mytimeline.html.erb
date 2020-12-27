@@ -1,0 +1,23 @@
+<% set_meta_tags title:'My Timeline', description: 'Here is the timeline of you. Pick a tweet up to thumbsup or down. If you do not see a tweet you are looking for, press "load more tweets" button' %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class='tweet_list' id="mytimeline">
+   <%= render partial: 'timeline_tweets', locals: {tweets: @mytimeline, max_id: @max_id}  %>
+</div>
+
+<div class="col-12" id="load_mytimeline_tweets">
+  <%= link_to "Load more tweets", tweets_mytimeline_reload_path( last_tweet_id: @last_tweet_id ), remote: true, class: 'btn btn-block search_button rounded-pill mt-3 mb-3' %>
+</div>  

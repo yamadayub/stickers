@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/tweets/timeline', to: 'tweets#timeline'
   get '/tweets/timeline_reload', to: 'tweets#timeline_reload'
   get '/random', to: 'posts#random'
+  get '/tweets/mytimeline', to: 'tweets#mytimeline'
+  get '/tweets/mytimeline_reload', to: 'tweets#mytimeline_reload'
   
   resources :posts, only: [:create, :show] do
     member do

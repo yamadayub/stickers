@@ -39,9 +39,38 @@ class Tweet
     
     #tweet_count以降のtweetsを取得
     timeline = client2.user_timeline(username, options = { max_id: last_tweet_id, count: 21, include_rts: false, exclude_replies: false })
-    #binding.pry    
+    binding.pry    
     
     @username = username
+    @add_tweets = []
+    
+    timeline[1..20].each do |tweet|
+      #binding.pry
+      @tweet = Tweet.new
+      @tweet.user_screen_name = tweet.user.screen_name
+      @tweet.tweet_id = tweet.id
+      @tweet.text = tweet.text
+      @tweet.profile_image_url = tweet.user.profile_image_url
+      @tweet.favorite_count = tweet.favorite_count
+      @tweet.tweet_url = "https://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}"
+      @add_tweets << @tweet
+    end
+    @add_tweets
+  end
+
+  def add_tweets_for_mytimeline(last_tweet_id)
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key    = ENV['TWITTER_API_KEY']
+      config.consumer_secret = ENV['TWITTER_API_SECRET']
+      config.access_token    = session[:oauth_token]
+      config.access_token_secret = session[:oauth_token_secret]
+    end
+    #binding.pry
+    
+    #max_id以降のtweetsを取得
+    timeline = @client.home_timeline(options = { max_id: last_tweet_id, count: 21, include_rts: false, exclude_replies: false })
+    binding.pry    
+    
     @add_tweets = []
     
     timeline[1..20].each do |tweet|
