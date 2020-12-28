@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'bookmarks/index'
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
@@ -18,6 +21,8 @@ Rails.application.routes.draw do
       get :thumbsup
     end
   end
+  
+  resources :bookmarks, only: [:index, :create, :destroy ]
   
   get '/worst', to: 'posts#worst'
   get '/best', to: 'posts#best'

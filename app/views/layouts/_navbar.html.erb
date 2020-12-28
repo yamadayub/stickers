@@ -15,7 +15,8 @@
       
       <% if user_signed_in? %>
         <li class="nav-item"><%= link_to "sign out", destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
-          <% if current_user.provider = 'twitter' %>
+        <li class="nav-item"><%= link_to "mybookmarks", bookmarks_path, method: :get, class: 'nav-link' %></li>
+        <% if current_user.provider = 'twitter' %>
             <li class="nav-item"><%= link_to "mytimeline", tweets_mytimeline_path, method: :get, class: 'nav-link' %></li>
           <% end %>
       <% else %>

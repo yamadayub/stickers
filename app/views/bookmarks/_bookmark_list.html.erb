@@ -1,0 +1,14 @@
+<% if posts.present? %>
+  <% posts.each_with_index do |ps, i| %>
+    <div class="tweet">
+      <img src="<%= ps.profile_image_url %>" class="rounded-circle tweet_icon">
+      <span class="tweet_text"><%= ps.text %></span>
+      <%= link_to post_path(ps.id), method: :get, class: "tn btn-default btn-lg tweet_button" do %>
+        <i class="fas fa-angle-right"></i>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+
+
