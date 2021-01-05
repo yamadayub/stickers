@@ -1,21 +1,25 @@
 <div class="box29">
   <div class="box-title">Thumbs Score</div>
+
   <% if post.thumbsup + post.like_in_twitter - post.thumbsdown > 0 %>
-    <div class="box-contens">
+    <div class="box-contens bg-success p-2 text-center">
         <i class="far fa-heart"></i> + <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
         <span><%= post.thumbsup + post.like_in_twitter - post.thumbsdown %></span>
     </div>
+    
   <% elsif post.thumbsup + post.like_in_twitter - post.thumbsdown == 0 %>
-    <div class="border border-dark bg-white mt-1 p-2 text-center font-weight-bold">
+    <div class="box-contens bg-white mt-1 p-2 text-center">
         <i class="far fa-heart"></i> + <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
         <span><%= post.thumbsup + post.like_in_twitter - post.thumbsdown %></span>
     </div>
+
   <% else %>
-    <div class="border border-dark bg-danger mt-1 p-2 text-center font-weight-bold">
+    <div class="box-contens bg-danger mt-1 p-2 text-center">
         <i class="far fa-heart"></i> + <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
         <span><%= post.thumbsup + post.like_in_twitter - post.thumbsdown %></span>
     </div>
   <% end %>
+
   <div class="box-contens">
     <i class="far fa-thumbs-up"></i>:<%= post.thumbsup %>
   </div>
@@ -24,7 +28,7 @@
   </div>
 </div> 
 
-<div class="row justify-content-around" >
+<div class="row justify-content-around mt-3" >
   <div class="thumbs_button" id="thumbsup-link-<%= post.id %>">
     <%= link_to  thumbsup_post_path, post_id: post.id, remote: true, class: 'btn-circle-border-up' do %>
       <i class="far fa-thumbs-up"></i>
