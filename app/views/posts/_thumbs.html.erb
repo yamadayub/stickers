@@ -2,7 +2,7 @@
   <!--<div class="box-title">Thumbs Score</div>-->
 
   <% if post.thumbsup + post.like_in_twitter - post.thumbsdown > 0 %>
-    <div class="box-contens bg-success p-2 text-center">
+    <div class="box-contens bg-positive p-2 text-center">
         <i class="far fa-heart"></i> + <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
         <span><%= post.thumbsup + post.like_in_twitter - post.thumbsdown %></span>
     </div>
@@ -14,7 +14,7 @@
     </div>
 
   <% else %>
-    <div class="box-contens bg-danger mt-1 p-2 text-center">
+    <div class="box-contens bg-negative mt-1 p-2 text-center">
         <i class="far fa-heart"></i> + <i class="far fa-thumbs-up"></i> - <i class="far fa-thumbs-down"></i> =
         <span><%= post.thumbsup + post.like_in_twitter - post.thumbsdown %></span>
     </div>
@@ -22,9 +22,7 @@
 
   <div class="box-contens">
     <i class="far fa-thumbs-up"></i>:<%= post.thumbsup %>
-  </div>
-  <div class="box-contens">
-    <i class="far fa-thumbs-down"></i>:<%= post.thumbsdown %>
+    <i class="far fa-thumbs-down ml-5"></i>:<%= post.thumbsdown %>
   </div>
 </div> 
 
