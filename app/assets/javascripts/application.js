@@ -15,7 +15,6 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require activestorage
-//= require_tree .
 
 //= require jquery3
 //= require popper
