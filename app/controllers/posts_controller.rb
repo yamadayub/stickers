@@ -53,7 +53,9 @@ class PostsController < ApplicationController
 
   def random
     @post = Post.where( 'id >= ?', rand(Post.first.id..Post.last.id) ).first
-    redirect_to @post
+    params[:id] = @post.id
+    # binding.pry
+    # redirect_to @post_random
   end
 
   def thumbsdown
@@ -81,7 +83,10 @@ class PostsController < ApplicationController
   
   def find_post
     # binding.pry
-    @post = Post.find(params[:id])
+    if @post
+    else
+      @post = Post.find(params[:id])
+    end
   end
   
   private
