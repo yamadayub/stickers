@@ -1,12 +1,12 @@
 <% set_meta_tags title:'Top', description: 'Thumbsmore enables you to express more than one "Like" on a tweet' %>
 
-<div class="col-12 mt-3 mb-3 p-2 text-center" style="background: #f0f8ff;">
-  <h1 class="mb-3"><%= t 'general.top_note1' %></h1>
-  <h5><%= t 'general.top_note2' %></h4>
-</div>
+<!--<div class="col-12 mt-3 mb-3 p-2 text-center" style="background: #f0f8ff;">-->
+<!--  <h1 class="mb-3"><%= t 'general.top_note1' %></h1>-->
+<!--  <h5><%= t 'general.top_note2' %></h4>-->
+<!--</div>-->
 
 <div class="col-12 mt-3 mb-2 p-3" style="background: #f0f8ff;">
-  <h4 class="text-center mb-2"><%= t 'general.how_to_use' %></h4>
+  <h4 class="text-center mb-4"><%= t 'general.how_to_search_timeline' %></h4>
    <div class="row m-2">
      <div class="col-12 mb-2"><%= t 'general.step1' %></div>
    </div>
@@ -18,16 +18,16 @@
    </div>
 </div>
 
-<div class="col-12 mt-3 p-3" style="background: #f0f8ff;">
-    <h5 class="text-center"><%= t 'general.lets_search' %></h5>
-</div>
+<!--<div class="col-12 mt-3 p-3" style="background: #f0f8ff;">-->
+<!--    <h5 class="text-center"><%= t 'general.lets_search' %></h5>-->
+<!--</div>-->
 
 <div class="col-12 p-3 form-group" style="background: #f0f8ff; padding: 10px">
   <%= form_with(url: tweets_timeline_path, method: :get, local: true) do |form| %>
     <%= form.text_field :search_username, id: "tweet_search_timeline", name: "search_username", placeholder: "Username for search", class: "form-control text-center" %>
     <span>
       <!--<%= form.submit value:"Account Search", class:"btn btn-block search_button rounded-pill mt-3" %>-->
-      <button title="Search" type="submit" class="btn btn-block search_button rounded-pill mt-3" id="account_search_btn">Account Search</button>
+      <button title="Search" type="submit" class="btn btn-block search_button rounded-pill mt-3" id="account_search_btn">Search</button>
     </span>
   <% end %>
 </div>

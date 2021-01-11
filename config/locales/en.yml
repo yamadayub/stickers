@@ -33,8 +33,18 @@ en:
   general:
     top_note1: 'Have you ever wanted to press LIKE button more than once?'
     top_note2: 'If yes, thumbsmore is the place for you'
-    how_to_use: 'How to use'
-    step1: '1. Search tweets by username and pick up a tweet to create a page'
-    step2: '2. Press thumbs-up or thumbs-down as many times as you want'
-    step3: '3. Copy the URL link and share it your followers'
+    how_to_search_timeline: 'How TO SEARCH A TIMELINE'
+    step1: '1. Enter a username'
+    step2: '2. Press the search button'
+    step3: '3. Pick up a tweet from the searched timeline'
     lets_search: 'Search Tweets and Thumbs more!'
+    
+    how_to_use: 'HOW TO USE'    
+    how1: '1. Hit thumbs on existing tweets as many times you want'
+    how2: '2. Add a new tweet you want to like or dislike'
+    how2-1-A: '2-1. Create your account with twitter' 
+    how2-1-B: 'and pick up a tweet from' 
+    how2-2-A: '2-2. Search a timeline by username'
+    how2-2-B: 'and pick up a tweet'
+    how3: '3. Share it with your followers by hitting the share button and paste it to your timeline if necessary'
+    
