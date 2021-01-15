@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  has_many :dislikes
+  has_many :bookmarks, dependent: :destroy
   
   def addthumbsdown
     # binding.pry
