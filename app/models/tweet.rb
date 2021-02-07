@@ -97,4 +97,28 @@ class Tweet
     client.status(tweet_id)
     # binding.pry
   end
+  
+  def get_a_trend_tweet #Trend Tweetの中から１件を返す
+      client = Twitter::REST::Client.new do |config|
+      # 事前準備で取得したキーのセット
+      config.consumer_key         = Settings.twitter_api.consumer_key
+      config.consumer_secret      = Settings.twitter_api.consumer_secret
+    end
+    
+    #get trend tweets
+    trends = client.trends
+    
+    #このトレンドサーチkeywordでTimelineを再サーチしてtop hit tweetをPost作成
+    query = trends.first.to_hash[:query]
+    tweet = client.search(query,options = { esult_type: "recent", include_rts: false, exclude_replies: false} ).first
+
+    @trend_tweet = Tweet.new
+    @trend_tweet.user_screen_name = tweet.user.screen_name
+    @trend_tweet.tweet_id = tweet.id
+    @trend_tweet.text = tweet.text
+    @trend_tweet.profile_image_url = tweet.user.profile_image_url.to_s
+    @trend_tweet.favorite_count = tweet.retweeted_status.favorite_count
+    @trend_tweet.tweet_url = "https://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}"
+    return @trend_tweet
+  end
 end
