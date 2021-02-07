@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/tweets/mytimeline', to: 'tweets#mytimeline'
   get '/tweets/mytimeline_reload', to: 'tweets#mytimeline_reload'
   
-  resources :posts, only: [:create, :show] do
+  resources :posts, only: [:create, :show, :destroy] do
     member do
       get :thumbsdown
       get :thumbsup

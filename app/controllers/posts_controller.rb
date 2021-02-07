@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :thumbsdown, :thumbsup]
+  before_action :find_post, only: [:show, :destroy, :thumbsdown, :thumbsup]
   before_action :set_variables, only: [:show, :thumbsdown, :thumbsup]
   
   #tweetの検索画面を表示する
@@ -50,6 +50,12 @@ class PostsController < ApplicationController
     @post.total_net_like = @post.like_in_twitter + @post.thumbsup - @post.thumbsdown
     @post.save
   end
+
+  def destroy
+    @post.destroy
+    redirect_to root_path
+  end
+
 
   def random
     @post = Post.where( 'id >= ?', rand(Post.first.id..Post.last.id) ).first
