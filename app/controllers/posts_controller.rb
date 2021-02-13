@@ -58,7 +58,10 @@ class PostsController < ApplicationController
 
 
   def random
-    @post = Post.where( 'id >= ?', rand(Post.first.id..Post.last.id) ).first
+    until @post
+      @post = Post.where( 'id >= ?', rand(Post.first.id..Post.last.id) ).first
+    end 
+    
     params[:id] = @post.id
     # binding.pry
     # redirect_to @post_random
