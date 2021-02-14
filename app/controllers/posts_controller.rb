@@ -82,7 +82,7 @@ class PostsController < ApplicationController
   end
   
   def best
-    @posts_best = Post.limit(100).order(net_thumbs: :desc)
+    @posts_best = Post.where('net_thumbs > 0').limit(100).order(net_thumbs: :desc)
   end
   
   def set_variables
