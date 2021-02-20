@@ -30,7 +30,7 @@ namespace :tweet_post do
   
     #Twitter Post
     post_url = "https://www.thumbsmore.com/posts#{@post.id}"
-    text = "Thumbs-up or down? | #{@post.twitter_username} | #{@post.text.slice(0..180)} | #{get_share_url(post_url)} | #thumbsmore"
+    text = "Thumbs-up or down? | @#{@post.twitter_username} | #{@post.text.slice(0..180)} | #{get_share_url(post_url)} | #thumbsmore"
    
     client.update(text)
 
