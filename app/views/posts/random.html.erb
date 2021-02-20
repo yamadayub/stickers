@@ -36,7 +36,7 @@
 </div>
 
 <div class="col-12">
-  <span id="share_btn" class="btn btn-block search_button rounded-pill mt-3" data-clipboard-text="Thumbs-up or down? | @<%= @post.twitter_username %> | &quot;<%= @post.text.slice(0..180) %>...&quot; | <%= get_share_url(request.url) %> | #thumbsmore">Copy URL and Title</span>
+  <span id="share_btn" class="btn btn-block search_button rounded-pill mt-3" data-clipboard-text="Thumbs-up or down? | @<%= @post.twitter_username %> | &quot;<%= @post.text.slice(0..180) %>...&quot; | <%= get_share_url(request.url) %> | #thumbsmore">Copy To Share</span>
 </div>
 
 <div class="col-12">
@@ -48,11 +48,11 @@
         <%= form.hidden_field :post_id, :value => @post.id  %>
         <%= form.hidden_field :user_id, :value => current_user.id  %>
         <span>
-          <button title="Bookmark" type="submit" class="btn btn-block search_button rounded-pill mt-1" id="bookmark_btn">Add Bookmark</button>
+          <button title="Bookmark" type="submit" class="btn btn-block action_button2 rounded-pill mt-1" id="bookmark_btn">Add Bookmark</button>
         </span>
       <% end %>
     <% end %>
-    <%= link_to "Delete Tweet", "posts/#{@post.id}", method: :delete, class: "btn btn-block search_button rounded-pill mt-1" %>
+    <%= link_to "Delete Tweet", "posts/#{@post.id}", method: :delete, class: "btn btn-block action_button2 rounded-pill mt-1" %>
   <% end %>
 </div>
 
